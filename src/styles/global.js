@@ -5,16 +5,16 @@ export default createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
+        font-family: 'Poppins', sans-serif;
     }
-
+    
     :root {
         font-size: 62.5%;
     }
-
+    
     body {
-        background-color: ${({ theme }) => theme.COLORS.BG_COLOR};
-        color: ${({ theme }) => theme.COLORS.LIGHT_100};
-        font-family: 'Poppins', sans-serif;
+        background-color: ${({ theme }) => theme.COLORS.DARK_100};
     }
 
     a {

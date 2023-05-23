@@ -7,9 +7,10 @@ export const Container = styled.div`
 
     > span {
         font-family: 'Roboto', sans-serif;
+        color: ${({ theme }) => theme.COLORS.LIGHT_100};
         font-style: normal;
         font-weight: 700;
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         line-height: 4.4rem;
     }
 `

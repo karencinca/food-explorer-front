@@ -10,16 +10,21 @@ export const Container = styled.div`
     justify-content: center;
     flex-wrap: nowrap;
     gap: 7rem;
-    font-size: 1.6rem;
-    color: ${({ theme }) => theme.COLORS.LIGHT_400};
-
+    
     .form {
         display: flex;
         flex-direction: column;
         gap: 2rem;
     }
-
+    
     > .input-wrapper {
         width: 100%;
+    }
+
+    label {
+        font-size: 1.6rem;
+        color: ${({ theme }) => theme.COLORS.LIGHT_400};
+        font-style: normal;
+        font-weight: 400;
     }
 `

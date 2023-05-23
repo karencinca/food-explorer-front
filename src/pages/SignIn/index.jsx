@@ -1,6 +1,8 @@
-import { Input } from "../../components/Input"
+import Input from "../../components/Input"
+import Button from '../../components/Button'
 import Logo from '../../components/Logo'
 import { Container } from './styles'
+import ButtonText from "../../components/ButtonText"
 
 const SignIn = () => {
   return (
@@ -15,6 +17,8 @@ const SignIn = () => {
                 <label htmlFor="password">Senha</label>
                 <Input placeholder="No mínimo 6 caracteres" />
             </div>
+            <Button title="Entrar" />
+            <ButtonText title="Criar uma conta" />
         </div>
     </Container>
   )

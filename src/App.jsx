@@ -1,10 +1,10 @@
-import SignIn from "./pages/SignIn/Index"
+import SignUp from "./pages/SignUp/index"
 
 function App() {
 
   return (
     <div>
-      <SignIn />
+      <SignUp />
     </div>
   )
 }
