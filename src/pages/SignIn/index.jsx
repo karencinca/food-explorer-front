@@ -1,6 +1,6 @@
 import Input from "../../components/Input"
 import Button from '../../components/Button'
-import Logo from '../../components/Logo'
+import Logo from "../../components/Logo"
 import { Container } from './styles'
 import ButtonText from "../../components/ButtonText"
 
