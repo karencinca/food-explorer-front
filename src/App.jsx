@@ -1,4 +1,3 @@
-import Menu from "./pages/UserPages/Menu"
 import SignUp from "./pages/SignUp/index"
 import SignIn from "./pages/SignIn"
 import Home from "./pages/UserPages/Home"

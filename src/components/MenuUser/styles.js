@@ -2,10 +2,14 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
     
     .menu-header {
         height: 114px;
-        padding: 56px 24px 28px;
+        padding: 56px 28px 28px;
         background-color: ${({ theme }) => theme.COLORS.DARK_700};
     }
 
@@ -21,6 +25,7 @@ export const Container = styled.div`
 
     .content {
         padding: 36px 28px;
+        background-color: ${({ theme }) => theme.COLORS.DARK_100};
     }
 
     nav {
@@ -36,6 +41,11 @@ export const Container = styled.div`
         padding-bottom: 10px;
         margin-bottom: 10px;
         border-bottom: 1px solid #192227;
+    }
+
+    button {
+        background: none;
+        border: none;
     }
 
 `

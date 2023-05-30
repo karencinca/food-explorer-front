@@ -1,10 +1,10 @@
 import { Container } from "./styles"
-import Input from '../../../components/Input'
-import Close from "../../../assets/icons/Close"
-import Search from '../../../assets/icons/Search'
-import Footer from "../../../components/Footer"
+import Input from '../Input'
+import Close from "../../assets/icons/Close"
+import Search from '../../assets/icons/Search'
+import Footer from "../Footer"
 
-const Menu = () => {
+const MenuAdmin = () => {
   return (
     <Container>
         <div className="menu-header">
@@ -31,4 +31,4 @@ const Menu = () => {
   )
 }
 
-export default Menu
+export default MenuAdmin
