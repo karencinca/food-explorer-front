@@ -26,6 +26,7 @@ export const Container = styled.div`
     .content {
         padding: 36px 28px;
         background-color: ${({ theme }) => theme.COLORS.DARK_100};
+        height: 100vh;
     }
 
     nav {

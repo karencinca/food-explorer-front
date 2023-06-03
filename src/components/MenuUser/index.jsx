@@ -2,7 +2,6 @@ import { Container } from "./styles"
 import Input from '../Input'
 import Close from "../../assets/icons/Close"
 import Search from '../../assets/icons/Search'
-import Footer from "../Footer"
 
 const MenuUser = ({ isOpen, setMenuOpen }) => {
     
@@ -29,7 +28,6 @@ const MenuUser = ({ isOpen, setMenuOpen }) => {
                   </nav>
       
               </div>
-              <Footer />
           </Container>
         )
     } else {
