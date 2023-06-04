@@ -2,8 +2,14 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     display: flex;
+    align-items: center;
     flex-direction: row;
     gap: 14px;
+
+        > button {
+            background: transparent;
+            border: none;
+        }
 
         > span {
             font-family: 'Roboto', sans-serif;
