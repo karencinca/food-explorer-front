@@ -2,8 +2,6 @@ import { Container } from "./styles"
 import Button from '../Button'
 import Image from '../../assets/meals/Mask group.png'
 import Heart from '../../assets/icons/Heart.svg'
-import Minus from '../../assets/icons/Minus'
-import Plus from '../../assets/icons/Plus'
 import AmountHandler from "../AmountHandler"
 
 const PlatePreview = () => {

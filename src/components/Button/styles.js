@@ -10,4 +10,5 @@ export const Container = styled.button`
     gap: 8px;
     border: none;
     font-size: 1.4rem;
+    width: 100%;
 `
