@@ -10,10 +10,11 @@ const HeaderUser = ({ menuOpen, setMenuOpen }) => {
       <button onClick={() => setMenuOpen(!menuOpen)}>
         <Menu />
       </button>
-        <LogoTitle />
+      <LogoTitle />
+      <div className='chart-wrapper'>
         <Receipt />
-
-        
+        <div className='chart-number'> <span>0</span></div>
+      </div>
     </Container>
   )
 }

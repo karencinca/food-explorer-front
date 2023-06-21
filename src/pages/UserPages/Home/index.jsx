@@ -7,13 +7,13 @@ import ScrollPlates from '../../../components/ScrollPlates'
 import PlatePreview from '../../../components/PlatePreview'
 import HeaderUser from '../../../components/HeaderUser'
 
-const Home = () => {
+const HomeUser = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   return (
     <Container>
-        <HeaderUser setMenuOpen={setMenuOpen} />
+      <HeaderUser setMenuOpen={setMenuOpen} />
 
-        <div className='content'>
+      <div className='content'>
           <Banner />
           <ScrollPlates title="Refeições">
             <PlatePreview />
@@ -29,9 +29,9 @@ const Home = () => {
 
         <MenuUser isOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
-        <Footer />
+      <Footer />
     </Container>
   )
 }
 
-export default Home
+export default HomeUser
