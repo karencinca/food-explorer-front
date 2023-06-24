@@ -3,6 +3,7 @@ import Button from '../../components/Button'
 import Logo from '../../components/Logo'
 import { Container } from './styles'
 import ButtonText from "../../components/ButtonText"
+import { Link } from "react-router-dom"
 
 const SignIn = () => {
   return (
@@ -22,7 +23,9 @@ const SignIn = () => {
                 <Input placeholder="No mínimo 6 caracteres" />
             </div>
             <Button title="Criar conta" />
-            <ButtonText title="Já tenho uma conta" />
+            <ButtonText>
+                <Link to="/">Já tenho uma conta</Link>
+            </ButtonText>
         </div>
     </Container>
   )

@@ -14,12 +14,13 @@ export const Container = styled.header`
         border: none;
     }
 
-    .chart-wrapper {
+    .cart-wrapper {
         position: relative;
-        padding: 10px;
+        padding-top: 10px;
+        padding-right: 10px;
     }
     
-    .chart-number {
+    .cart-number {
         background-color: ${({ theme }) => theme.COLORS.TOMATO_100};
         position: absolute;
         top: 0;

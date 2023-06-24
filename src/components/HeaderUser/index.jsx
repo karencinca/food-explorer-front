@@ -11,9 +11,9 @@ const HeaderUser = ({ menuOpen, setMenuOpen }) => {
         <Menu />
       </button>
       <LogoTitle />
-      <div className='chart-wrapper'>
+      <div className='cart-wrapper'>
         <Receipt />
-        <div className='chart-number'> <span>0</span></div>
+        <div className='cart-number'> <span>0</span></div>
       </div>
     </Container>
   )

@@ -8,6 +8,7 @@ import Footer from '../../../components/Footer'
 import MenuUser from '../../../components/MenuUser'
 import { useState } from 'react'
 import IngredientTag from '../../../components/IngredientTag'
+import { Link } from 'react-router-dom'
 
 const PlateDetails = () => {
 const [menuOpen, setMenuOpen] = useState(false)
@@ -19,7 +20,7 @@ const [menuOpen, setMenuOpen] = useState(false)
         <div className="content">
             <div className="back-btn">
                 <img src={CaretLeft} alt="" />
-                <a href="/">voltar</a>
+                <Link to="/">voltar</Link>
             </div>
 
             <div className="plate">

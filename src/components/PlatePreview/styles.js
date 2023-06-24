@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
     background-color: ${({ theme }) => theme.COLORS.DARK_300};
@@ -23,18 +24,7 @@ export const Container = styled.div`
         align-items: center;
         gap: 10px;
         
-        > img {
-            width: 88px;
-            height: 88px;
-        }
 
-        > h3 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            font-size: 1.4rem;
-            line-height: 2.4rem;
-            text-align: center;
-        }
 
         > span {
             font-family: 'Roboto', sans-serif;
@@ -44,4 +34,24 @@ export const Container = styled.div`
             color: ${({ theme }) => theme.COLORS.CAKE_200};
         }
     }
+`
+
+export const Details = styled(Link)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    > img {
+        width: 88px;
+        height: 88px;
+    }
+
+    > h3 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 1.4rem;
+        line-height: 2.4rem;
+        text-align: center;
+        }
 `

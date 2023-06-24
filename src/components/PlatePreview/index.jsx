@@ -1,4 +1,4 @@
-import { Container } from "./styles"
+import { Container, Details } from "./styles"
 import Button from '../Button'
 import Image from '../../assets/meals/Mask group.png'
 import Heart from '../../assets/icons/Heart.svg'
@@ -9,8 +9,10 @@ const PlatePreview = () => {
     <Container>
         <img src={Heart} alt="add as favorite" />
         <div>
-            <img src={Image} alt='foto do prato' />
-            <h3>Salada Ravanello </h3>
+            <Details to="/plateDetails/:id">
+              <img src={Image} alt='foto do prato' />
+              <h3>Salada Ravanello </h3>
+            </Details>
             <span>R$ 49,97</span>
             <AmountHandler />
             <Button title="incluir" />
