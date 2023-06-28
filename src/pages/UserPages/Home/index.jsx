@@ -7,8 +7,20 @@ import ScrollPlates from '../../../components/ScrollPlates'
 import PlatePreview from '../../../components/PlatePreview'
 import HeaderUser from '../../../components/HeaderUser'
 
+import api from '../../../../api'
+
 const HomeUser = () => {
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const plates = api.map(item => {
+    return (
+      <PlatePreview 
+        key={item.id}
+        {...item}
+      />
+    )
+  })
+
   return (
     <Container>
       <HeaderUser setMenuOpen={setMenuOpen} />
@@ -16,14 +28,10 @@ const HomeUser = () => {
       <div className='content'>
           <Banner />
           <ScrollPlates title="Refeições">
-            <PlatePreview />
-            <PlatePreview />
-            <PlatePreview />
+            {plates}
           </ScrollPlates>
           <ScrollPlates title="Pratos principais">
-            <PlatePreview />
-            <PlatePreview />
-            <PlatePreview />
+            {plates}
           </ScrollPlates>
         </div>
 

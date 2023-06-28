@@ -1,6 +1,6 @@
 import HeaderUser from '../../../components/HeaderUser'
 import CaretLeft from '../../../assets/icons/CaretLeft.svg'
-import Image from '../../../assets/meals/Mask group.png'
+import Image from '../../../../public/meals/mask-group.png'
 import { Container } from './styles'
 import AmountHandler from '../../../components/AmountHandler'
 import Button from '../../../components/Button'
@@ -11,7 +11,7 @@ import IngredientTag from '../../../components/IngredientTag'
 import { Link } from 'react-router-dom'
 
 const PlateDetails = () => {
-const [menuOpen, setMenuOpen] = useState(false)
+    const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <Container>
