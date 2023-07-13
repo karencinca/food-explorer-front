@@ -1,6 +1,5 @@
 import { Container } from './styles'
-import Minus from '../../assets/icons/Minus'
-import Plus from '../../assets/icons/Plus'
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { useState } from 'react'
 
 const AmountHandler = () => {
@@ -20,13 +19,15 @@ const AmountHandler = () => {
 
   return (
     <Container>
-      <button onClick={deleteItemHandler}>
-        <Minus />
-      </button>
+        <AiOutlineMinus 
+          size='24px'
+          onClick={deleteItemHandler}
+        />
       <span>{counter}</span>
-      <button onClick={addItemHandler}>
-        <Plus />
-      </button> 
+        <AiOutlinePlus 
+          size='24px'
+          onClick={addItemHandler}
+        />
     </Container>
   )
 }
