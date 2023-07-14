@@ -33,6 +33,7 @@ export const Container = styled.div`
             line-height: 100%;
             color: ${({ theme }) => theme.COLORS.CAKE_200};
         }
+
     }
 `
 
