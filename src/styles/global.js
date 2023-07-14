@@ -14,7 +14,7 @@ export default createGlobalStyle`
     }
     
     body {
-        background-color: ${({ theme }) => theme.COLORS.DARK_200};
+        background-color: ${({ theme }) => theme.COLORS.DARK_400};
     }
 
     a {
@@ -28,6 +28,21 @@ export default createGlobalStyle`
 
     button:hover, a:hover {
         filter: brightness(0.9)
+    }
+
+    *::-webkit-scrollbar {
+        margin-right: 10px;
+        width: 5px;
+        height: 8px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background-color: ${({ theme }) => theme.COLORS.DARK_200};
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: ${({ theme }) => theme.COLORS.DARK_300};
+        border-radius: 30px;
     }
 
 `
