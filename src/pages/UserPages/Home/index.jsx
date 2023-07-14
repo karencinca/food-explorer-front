@@ -27,12 +27,14 @@ const HomeUser = () => {
 
       <div className='content'>
           <Banner />
-          <ScrollPlates title="Refeições">
-            {plates}
-          </ScrollPlates>
-          <ScrollPlates title="Pratos principais">
-            {plates}
-          </ScrollPlates>
+          <div className='plates'>
+            <ScrollPlates title="Refeições">
+              {plates}
+            </ScrollPlates>
+            <ScrollPlates title="Pratos principais">
+              {plates}
+            </ScrollPlates>
+          </div>
         </div>
 
         <MenuUser isOpen={menuOpen} setMenuOpen={setMenuOpen} />

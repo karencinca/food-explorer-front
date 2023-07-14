@@ -8,6 +8,14 @@ export const Container = styled.div`
     "header"
     "content"
     "footer"; */
+
+    @media (min-width: 1024px) {
+        .plates {
+            margin-left: 110px;
+            margin-right: 124px;
+        }
+
+    }
 `
 
 // export const Content = styled.div`

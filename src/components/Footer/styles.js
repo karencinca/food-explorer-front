@@ -8,4 +8,9 @@ export const Container = styled.footer`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (min-width: 1024px) {
+        padding-left: 124px;
+        padding-right: 124px;
+    }
 ` 

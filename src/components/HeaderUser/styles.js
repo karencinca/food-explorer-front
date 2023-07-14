@@ -8,11 +8,7 @@ export const Container = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    button {
-        background: none;
-        border: none;
-    }
+    gap: 1rem;
 
     .cart-wrapper {
         position: relative;
@@ -31,5 +27,33 @@ export const Container = styled.header`
         align-items: center;
         justify-content: center;
         border-radius: 50%;
+    }
+
+    @media (min-width: 1024px) {
+        gap: 5rem;
+        height: 104px;
+        padding-left: 124px;
+        padding-right: 124px;
+        padding-top: 30px;
+    }
+
+    .logo-title {
+        width: 800px;
+    }
+
+    .orders-btn {
+        padding: auto 20px;
+        font-size: 14px;
+        max-width: 220px;
+    }
+
+    .sign-out {
+        width: 32px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 `

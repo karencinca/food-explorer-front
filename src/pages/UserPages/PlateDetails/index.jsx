@@ -6,9 +6,9 @@ import AmountHandler from '../../../components/AmountHandler'
 import Button from '../../../components/Button'
 import Footer from '../../../components/Footer'
 import MenuUser from '../../../components/MenuUser'
-import { useState } from 'react'
 import IngredientTag from '../../../components/IngredientTag'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 const PlateDetails = () => {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -27,7 +27,7 @@ const PlateDetails = () => {
 
                 <div className="image-container">
                     <img src={Image} alt="Imagem do prato" />
-                    <h2>Salada Ravanello</h2>
+                    <h2>Salada Rvanello</h2>
                 </div>
 
                 <div className="description-container">
