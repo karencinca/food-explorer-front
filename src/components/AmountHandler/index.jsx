@@ -5,26 +5,30 @@ import { useState } from 'react'
 const AmountHandler = () => {
   const [counter, setCounter] = useState(0)
 
+  const counterWithZero = counter < 10 ? counter.toString().padStart(2, '0') : counter
+  
   const addItemHandler = () => {
-    setCounter(counter + 1)
+    setCounter(prevState => prevState + 1)
   }
-
+  
   const deleteItemHandler = () => {
-    setCounter(counter - 1)
-
-    if(counter <= 0) {
+    setCounter(prevState => prevState - 1)
+    
+    if (counter <= 0) {
       setCounter(0)
     }
   }
 
   return (
     <Container>
-        <AiOutlineMinus 
+        <AiOutlineMinus
+          className='icon' 
           size='24px'
           onClick={deleteItemHandler}
         />
-      <span>{counter}</span>
-        <AiOutlinePlus 
+      <span>{counterWithZero}</span>
+        <AiOutlinePlus
+          className='icon' 
           size='24px'
           onClick={addItemHandler}
         />

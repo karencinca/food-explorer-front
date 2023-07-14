@@ -11,7 +11,7 @@ import { useMediaQuery } from 'react-responsive'
 import { useState } from 'react'
  
 const HeaderUser = ({ menuOpen, setMenuOpen }) => {
-  const [isAdmin, setIsAdmin] = useState(true)
+  const [isAdmin, setIsAdmin] = useState(false)
   const isDesktop = useMediaQuery({ minWidth: 1024 })
 
   return (

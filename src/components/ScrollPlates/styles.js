@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     margin-left: 15px;
+    margin-top: 20px;
     
     > .cards {
         display: flex;
@@ -17,5 +18,13 @@ export const Container = styled.div`
         line-height: 140%;
         color: ${({ theme }) => theme.COLORS.LIGHT_300};
         margin-bottom: 24px;
+    }
+
+    @media (min-width: 1024px) {
+        margin-top: 40px;
+
+        h2 {
+            font-size: 3.2rem;
+        }
     }
 `

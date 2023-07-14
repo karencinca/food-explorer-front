@@ -50,4 +50,21 @@ export default [
         ],
         isFav: false,
     },
+    {
+        id: 4,
+        type: 'meal',
+        title: 'Spaguetti Gambe',
+        description: 'Massa fresca com camarões e pesto. ',
+        img: 'mask-group-2.png',
+        price: 79.97,
+        ingredients: [
+            'camarão',
+            'cebola',
+            'pesto',
+            'pepino',
+            'rabanete',
+            'tomate'
+        ],
+        isFav: false,
+    },
 ]
