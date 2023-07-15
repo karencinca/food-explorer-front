@@ -1,6 +1,7 @@
 import HeaderUser from '../../../components/HeaderUser'
 import CaretLeft from '../../../assets/icons/CaretLeft.svg'
 import Image from '../../../../public/meals/mask-group.png'
+import Receipt from '../../../assets/icons/Receipt'
 import { Container } from './styles'
 import AmountHandler from '../../../components/AmountHandler'
 import Button from '../../../components/Button'
@@ -27,11 +28,11 @@ const PlateDetails = () => {
 
                 <div className="image-container">
                     <img src={Image} alt="Imagem do prato" />
-                    <h2>Salada Rvanello</h2>
                 </div>
 
                 <div className="description-container">
-                    <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim.</p>
+                    <h2>Salada Ravanello</h2>
+                    <p>Rabanetes, folhas verdes e molho agridoce salpicados com gergelim. O pão naan dá um toque especial.</p>
 
                     <div className='ingredients-container'>
                         <IngredientTag title="alface" />
@@ -41,12 +42,16 @@ const PlateDetails = () => {
                         <IngredientTag title="rabanete" />
                         <IngredientTag title="tomate" />
                     </div>
+                    <div className="order-container">
+                        <AmountHandler />
+                        <Button 
+                        icon={Receipt}
+                        title="pedir ∙ R$ 25,00" 
+                        style={{fontSize: '1rem'}} 
+                        />
+                    </div>
                 </div>
 
-                <div className="order-container">
-                    <AmountHandler />
-                    <Button title="pedir" />
-                </div>
             </div>
         </div>
         <MenuUser isOpen={menuOpen} setMenuOpen={setMenuOpen} />

@@ -37,21 +37,21 @@ export const Container = styled.div`
         > img {
             height: 200px;
             width: 200px;
-            margin: 16px;
         }
 
-        > h2 {
-            font-weight: 500;
-            font-size: 2.7rem;
-            line-height: 140%;
-
-        }
     }
-
+    
     .description-container {
         display: flex;
         align-items: center;
         flex-direction: column;
+        
+        > h2 {
+            font-weight: 500;
+            font-size: 2.7rem;
+            line-height: 140%;
+            margin: 8px 0;
+        }
 
         > p {
             text-align: center;
@@ -77,4 +77,44 @@ export const Container = styled.div`
         align-items: center;
         gap: 16px;
     }
+
+    footer {
+        position: static;
+        bottom: 0;
+    }
+
+    @media (min-width: 1024px) {
+        .content {
+            padding-left: 124px;
+            padding-right: 124px;
+        }
+
+        .content .plate {
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 47px;
+            margin-top: 42px;
+            
+            img {
+                width: 390px;
+                height: 390px;
+            }
+
+            .description-container {
+                align-items: flex-start;
+
+                .ingredients-container {
+                    align-items: flex-start;
+                    margin: 24px 0 48px 0;
+                }
+            }
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+        }
+    }
+
 `
