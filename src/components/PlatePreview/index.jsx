@@ -8,6 +8,8 @@ import { useMediaQuery } from "react-responsive"
 const PlatePreview = (props) => {
   const [isFav, setIsFav] = useState(false)
   const isDesktop = useMediaQuery({ minWidth: 1024 })
+
+  const priceWithComma = (props.price).toString().replace(".", ",")
  
   function favToggle() {
     setIsFav(prevState => !prevState)
@@ -27,7 +29,7 @@ const PlatePreview = (props) => {
               <h3 className="plate-title">{props.title + ' >'}</h3>
               {isDesktop && <p className="plate-description">{props.description}</p>}
             </Details>
-            <span className="price">R$ {props.price}</span>
+            <span className="price">R$ {priceWithComma}</span>
             <div className="stepper-button-wrapper">
               <AmountHandler />
               <Button title="incluir" />

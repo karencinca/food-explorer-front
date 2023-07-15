@@ -16,6 +16,11 @@ export const Container = styled.div`
 
         .icon {
             cursor: pointer;
+            transition: .3s;
+        }
+
+        .icon:hover {
+            transform: scale(1.1);
         }
             
 `
