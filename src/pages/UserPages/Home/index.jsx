@@ -13,11 +13,11 @@ const HomeUser = () => {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const plates = api.map(item => {
-    return (
-      <PlatePreview 
-        key={item.id}
-        {...item}
-      />
+    return (       
+        <PlatePreview 
+          key={item.id}
+          {...item}
+        />
     )
   })
 
@@ -28,10 +28,14 @@ const HomeUser = () => {
       <div className='content'>
           <Banner />
           <div className='plates'>
-            <ScrollPlates title="Refeições">
+            <ScrollPlates 
+            title="Refeições" 
+            >
               {plates}
             </ScrollPlates>
-            <ScrollPlates title="Pratos principais">
+            <ScrollPlates 
+            title="Pratos principais"
+            >
               {plates}
             </ScrollPlates>
           </div>

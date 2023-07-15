@@ -84,4 +84,38 @@ export default [
         ],
         isFav: false,
     },
+    {
+        id: 6,
+        type: 'meal',
+        title: 'Torradas de Parma',
+        description: 'Presunto de parma e rúcula em um pão com fermentação natural.',
+        img: 'mask-group-1.png',
+        price: 25.97,
+        ingredients: [
+            'alface',
+            'cebola',
+            'pão naan',
+            'pepino',
+            'rabanete',
+            'tomate'
+        ],
+        isFav: false,
+    },
+    {
+        id: 7,
+        type: 'meal',
+        title: 'Torradas de Parma',
+        description: 'Presunto de parma e rúcula em um pão com fermentação natural.',
+        img: 'mask-group-1.png',
+        price: 25.97,
+        ingredients: [
+            'alface',
+            'cebola',
+            'pão naan',
+            'pepino',
+            'rabanete',
+            'tomate'
+        ],
+        isFav: false,
+    },
 ]

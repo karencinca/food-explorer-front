@@ -10,6 +10,17 @@ export const Container = styled.div`
         flex-direction: row;
         overflow: auto;
     }
+
+    .scroll {
+        display: flex;
+        flex-direction: row;
+        overflow: auto;
+        scroll-behavior: smooth;
+    }
+
+    .scroll::-webkit-scrollbar {
+        display: none;
+    }
     
     > h2 {
         font-family: 'Poppins', sans-serif;
@@ -24,9 +35,8 @@ export const Container = styled.div`
         .linear-gradient-left {
             width: 224px;
             height: 462px;
-            background: var(--gradients-100, linear-gradient(90deg, rgba(0, 10, 15, 0.27) 0%, #000A0F 100%));
+            background: var(--gradients-100, linear-gradient(90deg, #000A0F 0%, rgba(0, 10, 15, 0.27) 100%));
             position: absolute;
-            transform: rotate(180deg);
             left: 0;
             z-index: 10;
         }
@@ -44,18 +54,21 @@ export const Container = styled.div`
             font-size: 40px;
             position: absolute;
             cursor: pointer;
+            transition: .3s;
         }
         
         .caret-left {
-            transform: rotate(180deg);
-            left: 80%;
-            top: 50%;
-
+            top: 40%;
+            left: 20%;
         }
 
         .caret-right {
-            top: 42%;
-            left: 80%;
+            top: 40%;
+            right: 20%;
+        }
+
+        .caret-left:hover, .caret-right:hover {
+            font-size: 45px;
         }
 
     @media (min-width: 1024px) {
