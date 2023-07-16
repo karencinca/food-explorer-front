@@ -13,6 +13,7 @@ import { useState } from 'react'
 
 const PlateDetails = () => {
     const [menuOpen, setMenuOpen] = useState(false)
+    const [isAdmin, setIsAdmin] = useState(false)
 
   return (
     <Container>
@@ -45,8 +46,8 @@ const PlateDetails = () => {
                     <div className="order-container">
                         <AmountHandler />
                         <Button 
-                        icon={Receipt}
-                        title="pedir ∙ R$ 25,00" 
+                        icon={!isAdmin && Receipt}
+                        title={isAdmin ? 'Editar prato' : 'pedir ∙ R$ 25,00'} 
                         style={{fontSize: '1rem'}} 
                         />
                     </div>

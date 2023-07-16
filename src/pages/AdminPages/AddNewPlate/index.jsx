@@ -3,8 +3,11 @@ import { Container } from "./styles"
 import HeaderUser from "../../../components/HeaderUser"
 import MenuUser from "../../../components/MenuUser"
 import CaretLeft from '../../../assets/icons/CaretLeft.svg'
+import { FiUpload } from 'react-icons/fi'
 import Input from "../../../components/Input"
 import AddIngredientTag from "../../../components/AddIngredientTag"
+import Footer from '../../../components/Footer'
+import Button from "../../../components/Button"
 
 const AddNewPlate = () => {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -24,29 +27,71 @@ const AddNewPlate = () => {
 
                 <form>
                     <div className="input-wrapper">
-                        <label htmlFor="plate-image">Imagem do prato</label>
-                        <Input type="file" />
+                        <p className="label-title">Imagem do prato</p>
+                        <label htmlFor="plate-image" className="image-file" id="image-file">
+                            {<FiUpload 
+                                size={24}
+                            />}
+                            Selecione imagem
+                        </label>
+                        <Input type="file" id='plate-image' />
                     </div>
                     <div className="input-wrapper">
-                        <label htmlFor="plate-name">Nome</label>
-                        <Input />
+                        <label htmlFor="plate-name" className="label-title">Nome</label>
+                        <Input
+                        id='plate-name' 
+                        placeholder='Ex.: Salada Ceasar'
+                        />
                     </div>
                     <div className="input-wrapper">
-                        <label htmlFor="category">Categoria</label>
-                        <select name="category" id="category">
-                            <option value="meal">Refeição</option>
-                            <option value="salad">Salada</option>
-                            <option value="dessert">Sobremesa</option>
-                        </select>
+                        <label htmlFor="category" id="category-input">Categoria</label>
+                        <div className="select-wrapper">
+                            <select name="category" id="category">
+                                <option value="meal">Refeição</option>
+                                <option value="salad">Salada</option>
+                                <option value="dessert">Sobremesa</option>
+                            </select>
+                        </div>
+                        <div className="ingredients-container input-wrapper">
+                            <p className="label-title">Ingredientes</p>
+                            <div className="ingredients-wrapper">
+                                <AddIngredientTag 
+                                
+                                    value="Pão Naan" 
+                                />
+                                <AddIngredientTag 
+                                        
+                                    value="Pão Naan" 
+                                />
+                                <AddIngredientTag 
+                                    isNew
+                                    value="Adicionar" 
+                                />
+                            </div>
+                        </div>
                     </div>
-
-                    <AddIngredientTag 
-                    isNew
-                    value="Pão Naan" />
+                    <div className="input-wrapper">
+                        <label htmlFor="price" id="price-input">Preço</label>
+                        <Input 
+                        type='text' 
+                        id='price' 
+                        placeholder='R$ 00,00' 
+                        />
+                    </div>
+                    <div className="input-wrapper">
+                        <label htmlFor="description" id="description-input">Descrição</label>
+                        <textarea
+                        type='text' 
+                        id='description' 
+                        placeholder='Fale brevemente sobre o prato, seus ingredientes e composição' />
+                    </div>
+                    <Button 
+                    title='Salvar alterações'
+                    className='save-button'
+                    />
                 </form>
             </div>
-
-
+            <Footer />
             <MenuUser isOpen={menuOpen} setMenuOpen={setMenuOpen} />
         
         </Container>
@@ -54,3 +99,4 @@ const AddNewPlate = () => {
 }
 
 export default AddNewPlate
+
