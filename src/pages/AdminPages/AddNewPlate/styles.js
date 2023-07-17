@@ -104,17 +104,6 @@ export const Container = styled.div`
         margin-top: 16px;
     }
 
-    .buttons-container {
-        display: flex;
-        height: 48px;
-        gap: 32px;
-        margin-bottom: 50px;
-    }
-
-    .delete-button {
-        background-color: ${({ theme }) => theme.COLORS.DARK_800};
-    }
-
     .save-button {
         background-color: ${({ theme }) => theme.COLORS.TOMATO_400};
     }
@@ -152,7 +141,7 @@ export const Container = styled.div`
                 "plateimage name category"
                 "ingredients ingredients price"
                 "description description description"
-                "buttons buttons buttons"
+                "button button button"
                 ;
                 gap: 32px;
             }
@@ -189,16 +178,13 @@ export const Container = styled.div`
             #category-input, #price-input, #description-input {
                 margin-top: 0;
             }
-
-            .buttons-container {
-                grid-area: buttons;
-                justify-self: end;
-                width: 390px;
-            }
             
             .save-button {
                 padding: 12px 24px;
+                width: 172px;
+                grid-area: button;
                 justify-self: end;
+                margin-bottom: 116px;
             }
         }
     }

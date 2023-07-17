@@ -88,21 +88,11 @@ const AddNewPlate = () => {
                         id='description' 
                         placeholder='Fale brevemente sobre o prato, seus ingredientes e composição' />
                     </div>
-
-                    <div className="buttons-container">
-                        {isAdmin && 
-                        <Button 
-                        title='Excluir prato'
-                        className='delete-button'
-                        />
-                        }
                         
-                        <Button 
-                        title='Salvar alterações'
-                        className='save-button'
-                        />
-                    </div>
-
+                    <Button 
+                    title='Salvar alterações'
+                    className='save-button'
+                    />
                 </form>
             </div>
             <Footer />
