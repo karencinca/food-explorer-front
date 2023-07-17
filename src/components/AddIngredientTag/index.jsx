@@ -3,7 +3,7 @@ import { Container } from './styles'
 
 const AddIngredientTag = ({ isNew, value, onClick, ...rest}) => {
   return (
-    <Container isNew={isNew}>
+    <Container isNew={isNew} className='tag-container'>
          <input 
             type="text" 
             value={value}

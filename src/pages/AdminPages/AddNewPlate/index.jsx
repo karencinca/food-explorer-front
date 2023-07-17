@@ -11,6 +11,8 @@ import Button from "../../../components/Button"
 
 const AddNewPlate = () => {
     const [menuOpen, setMenuOpen] = useState(false)
+    const [isAdmin, setIsAdmin] = useState(false)
+
     return (
         <Container>
             <HeaderUser setMenuOpen={setMenuOpen} />
@@ -26,24 +28,24 @@ const AddNewPlate = () => {
                 </h2>
 
                 <form>
-                    <div className="input-wrapper">
+                    <div className="input-wrapper image-plate">
                         <p className="label-title">Imagem do prato</p>
                         <label htmlFor="plate-image" className="image-file" id="image-file">
                             {<FiUpload 
                                 size={24}
                             />}
-                            Selecione imagem
+                            {isAdmin ? 'Selecione imagem para alterá-la' : 'Selecione imagem'}
                         </label>
                         <Input type="file" id='plate-image' />
                     </div>
-                    <div className="input-wrapper">
+                    <div className="input-wrapper name-plate">
                         <label htmlFor="plate-name" className="label-title">Nome</label>
                         <Input
                         id='plate-name' 
                         placeholder='Ex.: Salada Ceasar'
                         />
                     </div>
-                    <div className="input-wrapper">
+                    <div className="input-wrapper category-plate">
                         <label htmlFor="category" id="category-input">Categoria</label>
                         <div className="select-wrapper">
                             <select name="category" id="category">
@@ -52,15 +54,17 @@ const AddNewPlate = () => {
                                 <option value="dessert">Sobremesa</option>
                             </select>
                         </div>
-                        <div className="ingredients-container input-wrapper">
+                    </div>
+                        <div className="input-wrapper ingredients-container">
                             <p className="label-title">Ingredientes</p>
                             <div className="ingredients-wrapper">
                                 <AddIngredientTag 
-                                
+                                    className='ingredient-tag'
                                     value="Pão Naan" 
-                                />
+                                    />
                                 <AddIngredientTag 
-                                        
+                                    className='ingredient-tag'
+                                    
                                     value="Pão Naan" 
                                 />
                                 <AddIngredientTag 
@@ -69,8 +73,7 @@ const AddNewPlate = () => {
                                 />
                             </div>
                         </div>
-                    </div>
-                    <div className="input-wrapper">
+                    <div className="input-wrapper plate-price">
                         <label htmlFor="price" id="price-input">Preço</label>
                         <Input 
                         type='text' 
@@ -78,17 +81,28 @@ const AddNewPlate = () => {
                         placeholder='R$ 00,00' 
                         />
                     </div>
-                    <div className="input-wrapper">
+                    <div className="input-wrapper plate-description">
                         <label htmlFor="description" id="description-input">Descrição</label>
                         <textarea
                         type='text' 
                         id='description' 
                         placeholder='Fale brevemente sobre o prato, seus ingredientes e composição' />
                     </div>
-                    <Button 
-                    title='Salvar alterações'
-                    className='save-button'
-                    />
+
+                    <div className="buttons-container">
+                        {isAdmin && 
+                        <Button 
+                        title='Excluir prato'
+                        className='delete-button'
+                        />
+                        }
+                        
+                        <Button 
+                        title='Salvar alterações'
+                        className='save-button'
+                        />
+                    </div>
+
                 </form>
             </div>
             <Footer />

@@ -14,10 +14,11 @@ export const Container = styled.div`
                 width: 8px;
             }
 
-            > a {
+            > a, img {
                 font-weight: 500;
                 font-size: 1.6rem;
                 line-height: 140%;
+                color: ${({ theme }) => theme.COLORS.LIGHT_300};
             }
         }
     }
@@ -27,6 +28,7 @@ export const Container = styled.div`
         line-height: 140%;
         font-weight: 400;
         margin: 24px auto;
+        color: ${({ theme }) => theme.COLORS.LIGHT_300};
     }
 
     .input-wrapper {
@@ -50,7 +52,7 @@ export const Container = styled.div`
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
     }
 
-    #image-file, .select-wrapper select, .ingredients-wrapper, textarea  {
+    #image-file, .select-wrapper select, textarea  {
         width: 100%;
         height: 48px;
         display: flex;
@@ -59,13 +61,17 @@ export const Container = styled.div`
         gap: 8px;
         background-color: ${({ theme }) => theme.COLORS.DARK_900};
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
-        padding: 1.6rem;
+        padding: 16px;
         font-size: 1.4rem;
         font-style: normal;
         font-weight: 500;
         line-height: 24px;
         border-radius: 10px;
         border: none;
+    }
+
+    .ingredients-container {
+        margin-top: 16px;
     }
 
     .select-wrapper, .ingredients-wrapper {
@@ -79,9 +85,13 @@ export const Container = styled.div`
     }
 
     .ingredients-wrapper {
+        height: 48px;
         display: flex;
         flex-wrap: wrap;
         height: fit-content;
+        align-items: center;
+        padding: 8px;
+        gap: 8px;
     }
 
     #description {
@@ -94,12 +104,102 @@ export const Container = styled.div`
         margin-top: 16px;
     }
 
-    .save-button {
+    .buttons-container {
+        display: flex;
+        height: 48px;
+        gap: 32px;
         margin-bottom: 50px;
+    }
+
+    .delete-button {
+        background-color: ${({ theme }) => theme.COLORS.DARK_800};
+    }
+
+    .save-button {
         background-color: ${({ theme }) => theme.COLORS.TOMATO_400};
     }
 
     footer {
         bottom: 0;
+    }
+
+    @media (min-width: 1024px) {
+        .content {
+            padding-left: 124px;
+            padding-right: 124px;
+
+            .back-btn {
+                margin-top: 40px;
+                
+                > a {
+                    font-size: 2.4rem;
+                    font-style: normal;
+                    font-weight: 700;
+                }
+        }
+
+            h2 {
+                font-size: 3.2rem;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 140%
+            }
+
+            form {
+                display: grid;
+                grid-template-columns: 1fr 2fr 1fr;
+                grid-template-areas:
+                "plateimage name category"
+                "ingredients ingredients price"
+                "description description description"
+                "buttons buttons buttons"
+                ;
+                gap: 32px;
+            }
+
+            .image-plate {
+                grid-area: plateimage;
+            }
+
+            .name-plate {
+                grid-area: name;
+            }
+
+            .category-plate {
+                grid-area: category;
+            }
+
+            .ingredients-container {
+                grid-area: ingredients;
+                margin-top: 0;
+                
+                .ingredients-wrapper {
+                    gap: 16px;
+                }
+            }
+
+            .plate-price {
+                grid-area: price;
+            }
+
+            .plate-description {
+                grid-area: description;
+            }
+
+            #category-input, #price-input, #description-input {
+                margin-top: 0;
+            }
+
+            .buttons-container {
+                grid-area: buttons;
+                justify-self: end;
+                width: 390px;
+            }
+            
+            .save-button {
+                padding: 12px 24px;
+                justify-self: end;
+            }
+        }
     }
 `
