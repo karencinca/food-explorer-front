@@ -9,10 +9,9 @@ import EditPlate from "./pages/AdminPages/EditPlate"
 
 
 function App() {
-
   return (
     <div>
-      <AddNewPlate />
+      <HomeUser />
     </div>
   )
 }

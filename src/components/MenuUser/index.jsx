@@ -2,8 +2,10 @@ import { Container } from "./styles"
 import Input from '../Input'
 import { AiOutlineClose } from 'react-icons/ai'
 import Search from '../../assets/icons/Search'
+import { useState } from "react"
 
 const MenuUser = ({ isOpen, setMenuOpen }) => {
+    const [isAdmin, setIsAdmin] = useState(false)
     
     if (isOpen) {
         return (
@@ -25,6 +27,7 @@ const MenuUser = ({ isOpen, setMenuOpen }) => {
                   />
       
                   <nav>
+                      {isAdmin && <li>Novo prato</li>}
                       <li>Sair</li>
                   </nav>
       
