@@ -1,3 +1,4 @@
+import { useAuth } from '../../hooks/auth'
 import { Container } from "./styles"
 import Input from '../Input'
 import { AiOutlineClose } from 'react-icons/ai'
@@ -6,6 +7,7 @@ import { useState } from "react"
 
 const MenuUser = ({ isOpen, setMenuOpen }) => {
     const [isAdmin, setIsAdmin] = useState(false)
+    const { signOut } = useAuth()
     
     if (isOpen) {
         return (
@@ -28,7 +30,7 @@ const MenuUser = ({ isOpen, setMenuOpen }) => {
       
                   <nav>
                       {isAdmin && <li>Novo prato</li>}
-                      <li>Sair</li>
+                      <li onClick={signOut}>Sair</li>
                   </nav>
       
               </div>

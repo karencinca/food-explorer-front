@@ -1,3 +1,4 @@
+import { useAuth } from '../../hooks/auth'
 import { AiOutlineMenu } from 'react-icons/ai'
 import LogoTitle from '../../assets/icons/LogoTitle'
 import LogoAdmin from '../../assets/icons/LogoAdmin'
@@ -13,6 +14,7 @@ import { useState } from 'react'
 const HeaderUser = ({ menuOpen, setMenuOpen }) => {
   const [isAdmin, setIsAdmin] = useState(false)
   const isDesktop = useMediaQuery({ minWidth: 1024 })
+  const { signOut } = useAuth()
 
   return (
     <Container>
@@ -49,9 +51,8 @@ const HeaderUser = ({ menuOpen, setMenuOpen }) => {
       }
 
       {isDesktop &&
-      <button className='sign-out'>
-        <SignOut 
-        />
+      <button className='sign-out' onClick={signOut}>
+        <SignOut />
       </button>
       }
     </Container>
