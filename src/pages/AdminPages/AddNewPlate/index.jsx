@@ -9,9 +9,48 @@ import AddIngredientTag from "../../../components/AddIngredientTag"
 import Footer from '../../../components/Footer'
 import Button from "../../../components/Button"
 
+import { useNavigate } from "react-router-dom"
+
+import { api } from "../../../services/api"
+
 const AddNewPlate = () => {
     const [menuOpen, setMenuOpen] = useState(false)
     const [isAdmin, setIsAdmin] = useState(false)
+
+    const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
+    const [category, setCategory] = useState('')
+    const [price, setPrice] = useState('')
+
+    const [ingredients, setIngredients] = useState([])
+    const [newIngredient, setNewIngredient] = useState('')
+
+    const navigate = useNavigate()
+
+    async function handleNewPlate() {
+        await api.post("/plates", {
+            title,
+            price,
+            category,
+            description
+        })
+        alert("Prato cadastrado com sucesso!")
+        navigate("/")
+    }
+
+    function handleAddIngredient() { 
+        if (newIngredient.length <= 0) {
+            alert('Adicione o ingrediente')
+            return
+        } else { 
+            setIngredients(prevState => [...prevState, newIngredient])
+            setNewIngredient('')
+        }
+    }
+
+    function handleRemoveIngredient(deleted) {
+        setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted))
+    }
 
     return (
         <Container>
@@ -43,12 +82,19 @@ const AddNewPlate = () => {
                         <Input
                         id='plate-name' 
                         placeholder='Ex.: Salada Ceasar'
+                        value={title}
+                        onChange={e => setTitle(e.target.value)}
                         />
                     </div>
                     <div className="input-wrapper category-plate">
                         <label htmlFor="category" id="category-input">Categoria</label>
                         <div className="select-wrapper">
-                            <select name="category" id="category">
+                            <select 
+                            name="category" 
+                            id="category"
+                            value={category}
+                            onChange={e => setCategory(e.target.value)}
+                            >
                                 <option value="meal">Refeição</option>
                                 <option value="salad">Salada</option>
                                 <option value="dessert">Sobremesa</option>
@@ -58,18 +104,23 @@ const AddNewPlate = () => {
                         <div className="input-wrapper ingredients-container">
                             <p className="label-title">Ingredientes</p>
                             <div className="ingredients-wrapper">
-                                <AddIngredientTag 
-                                    className='ingredient-tag'
-                                    value="Pão Naan" 
-                                    />
-                                <AddIngredientTag 
-                                    className='ingredient-tag'
-                                    
-                                    value="Pão Naan" 
-                                />
+
+                                {
+                                    ingredients.map((ingredient, index) => (
+                                        <AddIngredientTag 
+                                            key={String(index)}
+                                            value={ingredient}
+                                            onClick={() => handleRemoveIngredient(ingredient)}
+                                        />
+                                    ))
+                                }
+
                                 <AddIngredientTag 
                                     isNew
-                                    value="Adicionar" 
+                                    placeholder="Adicionar"
+                                    onChange={e => setNewIngredient(e.target.value)}
+                                    value={newIngredient}
+                                    onClick={handleAddIngredient} 
                                 />
                             </div>
                         </div>
@@ -79,6 +130,7 @@ const AddNewPlate = () => {
                         type='text' 
                         id='price' 
                         placeholder='R$ 00,00' 
+                        onChange={e => setPrice(e.target.value)}
                         />
                     </div>
                     <div className="input-wrapper plate-description">
@@ -86,12 +138,15 @@ const AddNewPlate = () => {
                         <textarea
                         type='text' 
                         id='description' 
-                        placeholder='Fale brevemente sobre o prato, seus ingredientes e composição' />
+                        placeholder='Fale brevemente sobre o prato, seus ingredientes e composição' 
+                        onChange={e => setDescription(e.target.value)}
+                        />
                     </div>
                         
                     <Button 
                     title='Salvar alterações'
                     className='save-button'
+                    onClick={handleNewPlate}
                     />
                 </form>
             </div>

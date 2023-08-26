@@ -10,9 +10,10 @@ import Button from '../Button'
 import { Container } from './styles'
 import { useMediaQuery } from 'react-responsive'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
  
 const HeaderUser = ({ menuOpen, setMenuOpen }) => {
-  const [isAdmin, setIsAdmin] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(true)
   const isDesktop = useMediaQuery({ minWidth: 1024 })
   const { signOut } = useAuth()
 
@@ -26,7 +27,9 @@ const HeaderUser = ({ menuOpen, setMenuOpen }) => {
           />
         }
 
-      {isAdmin ? <LogoAdmin /> : <LogoTitle />}
+        {/* <Link to="/"> */}
+          {isAdmin ? <LogoAdmin /> : <LogoTitle />}
+        {/* </Link> */}
 
       {isDesktop &&
         <Input
@@ -42,12 +45,19 @@ const HeaderUser = ({ menuOpen, setMenuOpen }) => {
         </div>
       }
 
-      {isDesktop && 
-        <Button
+      {isDesktop &&
+        isAdmin ?
+          <Link to="/newplate">
+            <Button
+            className='orders-btn' 
+            title='Novo prato'
+            /> 
+          </Link> :
+          <Button
           className='orders-btn' 
-          icon={isAdmin ? 'none' : Receipt}
-          title={isAdmin ? 'Novo prato' : 'Pedidos (0)'}
-        />
+          icon={Receipt}
+          title='Pedidos (0)'
+          />
       }
 
       {isDesktop &&

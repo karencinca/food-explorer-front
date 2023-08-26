@@ -13,7 +13,7 @@ import { useState } from 'react'
 
 const PlateDetails = () => {
     const [menuOpen, setMenuOpen] = useState(false)
-    const [isAdmin, setIsAdmin] = useState(false)
+    const [isAdmin, setIsAdmin] = useState(true)
 
   return (
     <Container>
@@ -47,7 +47,7 @@ const PlateDetails = () => {
                         <AmountHandler />
                         <Button 
                         icon={!isAdmin && Receipt}
-                        title={isAdmin ? 'Editar prato' : 'pedir ∙ R$ 25,00'} 
+                        title={isAdmin ? <Link to="/editplate/:id">Editar </Link> : 'pedir ∙ R$ 25,00'} 
                         style={{fontSize: '1rem'}} 
                         />
                     </div>
