@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Container } from "./styles"
-import HeaderUser from "../../../components/HeaderUser"
-import MenuUser from "../../../components/MenuUser"
+import HeaderUser from "../../../components/Header"
+import MenuUser from "../../../components/Menu"
 import CaretLeft from '../../../assets/icons/CaretLeft.svg'
 import { FiUpload } from 'react-icons/fi'
 import Input from "../../../components/Input"

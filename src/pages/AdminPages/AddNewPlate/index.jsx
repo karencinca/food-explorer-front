@@ -1,7 +1,7 @@
-import { useState } from "react"
 import { Container } from "./styles"
-import HeaderUser from "../../../components/HeaderUser"
-import MenuUser from "../../../components/MenuUser"
+import { useState } from "react"
+import Header from "../../../components/Header"
+import Menu from "../../../components/Menu"
 import CaretLeft from '../../../assets/icons/CaretLeft.svg'
 import { FiUpload } from 'react-icons/fi'
 import Input from "../../../components/Input"
@@ -13,11 +13,11 @@ import { useNavigate } from "react-router-dom"
 
 import { api } from "../../../services/api"
 
-const AddNewPlate = () => {
+const AddNewPlate = ({ isAdmin }) => {
     const [menuOpen, setMenuOpen] = useState(false)
-    const [isAdmin, setIsAdmin] = useState(false)
 
     const [title, setTitle] = useState('')
+    const [image, setImage] = useState('')
     const [description, setDescription] = useState('')
     const [category, setCategory] = useState('')
     const [price, setPrice] = useState('')
@@ -27,17 +27,6 @@ const AddNewPlate = () => {
 
     const navigate = useNavigate()
 
-    async function handleNewPlate() {
-        await api.post("/plates", {
-            title,
-            price,
-            category,
-            description
-        })
-        alert("Prato cadastrado com sucesso!")
-        navigate("/")
-    }
-
     function handleAddIngredient() { 
         if (newIngredient.length <= 0) {
             alert('Adicione o ingrediente')
@@ -46,15 +35,40 @@ const AddNewPlate = () => {
             setIngredients(prevState => [...prevState, newIngredient])
             setNewIngredient('')
         }
+        
     }
-
+    
     function handleRemoveIngredient(deleted) {
         setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted))
+    }
+    
+    async function handleNewPlate() {
+        if (!title) {
+            return alert('Informe o nome do prato')
+        }
+
+        if (newIngredient) {
+            return alert('Clique em adicionar o ingrediente')
+        }
+
+        await api.post("/plates", {
+            title,
+            image,
+            price,
+            category,
+            ingredients,
+            description
+        })
+        alert("Prato cadastrado com sucesso!")
+        navigate("/")
     }
 
     return (
         <Container>
-            <HeaderUser setMenuOpen={setMenuOpen} />
+            <Header 
+            setMenuOpen={setMenuOpen} 
+            isAdmin={isAdmin}
+            />
 
             <div className="content">
                 <div className="back-btn">
@@ -75,7 +89,12 @@ const AddNewPlate = () => {
                             />}
                             {isAdmin ? 'Selecione imagem para alterá-la' : 'Selecione imagem'}
                         </label>
-                        <Input type="file" id='plate-image' />
+                        <Input 
+                            type="file" 
+                            id='plate-image' 
+                            value={image}
+                            onChange={e => setImage(e.target.value)}
+                            />
                     </div>
                     <div className="input-wrapper name-plate">
                         <label htmlFor="plate-name" className="label-title">Nome</label>
@@ -88,18 +107,17 @@ const AddNewPlate = () => {
                     </div>
                     <div className="input-wrapper category-plate">
                         <label htmlFor="category" id="category-input">Categoria</label>
-                        <div className="select-wrapper">
                             <select 
                             name="category" 
                             id="category"
                             value={category}
                             onChange={e => setCategory(e.target.value)}
                             >
+                                <option value="">-- Selecione --</option>
                                 <option value="meal">Refeição</option>
                                 <option value="salad">Salada</option>
                                 <option value="dessert">Sobremesa</option>
                             </select>
-                        </div>
                     </div>
                         <div className="input-wrapper ingredients-container">
                             <p className="label-title">Ingredientes</p>
@@ -151,7 +169,11 @@ const AddNewPlate = () => {
                 </form>
             </div>
             <Footer />
-            <MenuUser isOpen={menuOpen} setMenuOpen={setMenuOpen} />
+            <Menu
+             isOpen={menuOpen} 
+             setMenuOpen={setMenuOpen}
+             isAdmin={isAdmin} 
+             />
         
         </Container>
   )

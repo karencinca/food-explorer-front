@@ -12,7 +12,7 @@ export const Container = styled.div`
     border: 1px solid ${({ theme }) => theme.COLORS.DARK_300};
     border-radius: 8px;
 
-    .fav-heart {
+    .fav-heart, .edit-pencil {
         position: absolute;
         right: 16px;
         top: 16px;

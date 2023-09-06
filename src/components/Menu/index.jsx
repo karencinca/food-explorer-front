@@ -5,8 +5,7 @@ import { AiOutlineClose } from 'react-icons/ai'
 import Search from '../../assets/icons/Search'
 import { useState } from "react"
 
-const MenuUser = ({ isOpen, setMenuOpen }) => {
-    const [isAdmin, setIsAdmin] = useState(false)
+const Menu = ({ isAdmin, isOpen, setMenuOpen }) => {
     const { signOut } = useAuth()
     
     if (isOpen) {
@@ -41,4 +40,4 @@ const MenuUser = ({ isOpen, setMenuOpen }) => {
     }
 }
 
-export default MenuUser
+export default Menu

@@ -50,9 +50,10 @@ export const Container = styled.div`
 
     #image-file  {
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
+        cursor: pointer;
     }
 
-    #image-file, .select-wrapper select, textarea  {
+    #image-file, select, textarea  {
         width: 100%;
         height: 48px;
         display: flex;
@@ -74,12 +75,12 @@ export const Container = styled.div`
         margin-top: 16px;
     }
 
-    .select-wrapper, .ingredients-wrapper {
+    select, .ingredients-wrapper {
         background-color: ${({ theme }) => theme.COLORS.DARK_900};
         border-radius: 10px;
     }
     
-    .select-wrapper select {
+    select {
         color: ${({ theme }) => theme.COLORS.LIGHT_400};
         line-height: 160%;
     }

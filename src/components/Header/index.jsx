@@ -12,8 +12,7 @@ import { useMediaQuery } from 'react-responsive'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
  
-const HeaderUser = ({ menuOpen, setMenuOpen }) => {
-  const [isAdmin, setIsAdmin] = useState(true)
+const Header = ({ isAdmin, menuOpen, setMenuOpen }) => {
   const isDesktop = useMediaQuery({ minWidth: 1024 })
   const { signOut } = useAuth()
 
@@ -27,9 +26,7 @@ const HeaderUser = ({ menuOpen, setMenuOpen }) => {
           />
         }
 
-        {/* <Link to="/"> */}
-          {isAdmin ? <LogoAdmin /> : <LogoTitle />}
-        {/* </Link> */}
+        {isAdmin ? <LogoAdmin /> : <LogoTitle />}
 
       {isDesktop &&
         <Input
@@ -45,8 +42,7 @@ const HeaderUser = ({ menuOpen, setMenuOpen }) => {
         </div>
       }
 
-      {isDesktop &&
-        isAdmin ?
+      {isAdmin ?
           <Link to="/newplate">
             <Button
             className='orders-btn' 
@@ -69,4 +65,4 @@ const HeaderUser = ({ menuOpen, setMenuOpen }) => {
   )
 }
 
-export default HeaderUser
+export default Header
