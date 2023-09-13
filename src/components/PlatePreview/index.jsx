@@ -5,6 +5,7 @@ import { FiHeart } from 'react-icons/fi'
 import { BsPencil } from 'react-icons/bs'
 import { useState } from "react"
 import { useMediaQuery } from "react-responsive"
+import { api } from '../../services/api'
 
 const PlatePreview = (props) => {
   const [isFav, setIsFav] = useState(false)
@@ -34,7 +35,7 @@ const PlatePreview = (props) => {
       }
         <div>
             <Details to="/plateDetails/:id">
-              <img src={props.image} alt='foto do prato' />
+              <img src={`${api.defaults.baseURL}/files/${props.image}`} alt='foto do prato' />
               <h3 className="plate-title">{props.title + ' >'}</h3>
               {isDesktop && <p className="plate-description">{props.description}</p>}
             </Details>

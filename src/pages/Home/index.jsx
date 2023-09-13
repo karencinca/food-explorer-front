@@ -13,16 +13,7 @@ const Home = ({ isAdmin }) => {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const [plates, setPlates] = useState({ meals: [], salads: [], desserts: [] })
-  // const [search, setSearch] = useState('')
 
-  // const plates = api.map(item => {
-  //   return (       
-  //       <PlatePreview 
-  //         key={item.id}
-  //         {...item}
-  //       />
-  //   )
-  // })
 
   useEffect(() => {
     async function fetchPlates() {

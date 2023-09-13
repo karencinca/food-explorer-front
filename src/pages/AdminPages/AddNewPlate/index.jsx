@@ -17,10 +17,11 @@ const AddNewPlate = ({ isAdmin }) => {
     const [menuOpen, setMenuOpen] = useState(false)
 
     const [title, setTitle] = useState('')
-    const [image, setImage] = useState('')
+    const [image, setImage] = useState(null)
     const [description, setDescription] = useState('')
     const [category, setCategory] = useState('')
     const [price, setPrice] = useState('')
+    const [fileName, setFileName] = useState('');
 
     const [ingredients, setIngredients] = useState([])
     const [newIngredient, setNewIngredient] = useState('')
@@ -41,6 +42,12 @@ const AddNewPlate = ({ isAdmin }) => {
     function handleRemoveIngredient(deleted) {
         setIngredients(prevState => prevState.filter(ingredient => ingredient !== deleted))
     }
+
+    function handleImageChange(e) {
+        const file = e.target.files[0]
+        setImage(file)
+        setFileName(file.name)
+      }
     
     async function handleNewPlate() {
         if (!title) {
@@ -51,17 +58,31 @@ const AddNewPlate = ({ isAdmin }) => {
             return alert('Clique em adicionar o ingrediente')
         }
 
-        await api.post("/plates", {
-            title,
-            image,
-            price,
-            category,
-            ingredients,
-            description
-        })
-        alert("Prato cadastrado com sucesso!")
-        navigate("/")
+        // await api.post("/plates", {
+        //     title,
+        //     image,
+        //     price,
+        //     category,
+        //     ingredients,
+        //     description
+        // })
+        // alert("Prato cadastrado com sucesso!")
+        // navigate("/")
+
+        const formData = new FormData()
+        formData.append("image", image)
+        formData.append("title", title)
+        formData.append("category", category)
+        formData.append("price", price)
+        formData.append("description", description)
+
+        formData.append("ingredients", JSON.stringify(ingredients))
+
+        await api.post('/plates', formData)
+        alert('Prato cadastrado com sucesso!')
+        navigate('/')
     }
+
 
     return (
         <Container>
@@ -87,14 +108,13 @@ const AddNewPlate = ({ isAdmin }) => {
                             {<FiUpload 
                                 size={24}
                             />}
-                            {isAdmin ? 'Selecione imagem para alterá-la' : 'Selecione imagem'}
-                        </label>
+                            {fileName || 'Selecione imagem'}
                         <Input 
                             type="file" 
                             id='plate-image' 
-                            value={image}
-                            onChange={e => setImage(e.target.value)}
+                            onChange={handleImageChange}
                             />
+                        </label>
                     </div>
                     <div className="input-wrapper name-plate">
                         <label htmlFor="plate-name" className="label-title">Nome</label>
@@ -180,4 +200,3 @@ const AddNewPlate = ({ isAdmin }) => {
 }
 
 export default AddNewPlate
-
