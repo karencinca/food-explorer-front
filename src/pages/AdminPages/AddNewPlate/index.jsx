@@ -58,29 +58,26 @@ const AddNewPlate = ({ isAdmin }) => {
             return alert('Clique em adicionar o ingrediente')
         }
 
-        // await api.post("/plates", {
-        //     title,
-        //     image,
-        //     price,
-        //     category,
-        //     ingredients,
-        //     description
-        // })
-        // alert("Prato cadastrado com sucesso!")
-        // navigate("/")
-
         const formData = new FormData()
         formData.append("image", image)
         formData.append("title", title)
         formData.append("category", category)
         formData.append("price", price)
         formData.append("description", description)
-
         formData.append("ingredients", JSON.stringify(ingredients))
 
-        await api.post('/plates', formData)
-        alert('Prato cadastrado com sucesso!')
-        navigate('/')
+        try {
+            await api.post("/plates", formData);
+            alert("Prato cadastrado com sucesso!");
+            navigate('/');
+          } catch (error) {
+            if (error.response) {
+              alert(error.response.data.message);
+            } else {
+              alert("Não foi possível cadastrar o prato.");
+            }
+          }
+        
     }
 
 
