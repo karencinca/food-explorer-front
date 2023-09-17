@@ -72,12 +72,13 @@ export const Container = styled.div`
     }
 `
 
-export const Details = styled(Link)`
+export const Details = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 12px;
+    cursor: pointer;
 
     > img {
         width: 88px;

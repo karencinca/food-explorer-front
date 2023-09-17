@@ -5,6 +5,7 @@ import { FiHeart } from 'react-icons/fi'
 import { BsPencil } from 'react-icons/bs'
 import { useState } from "react"
 import { useMediaQuery } from "react-responsive"
+
 import { api } from '../../services/api'
 
 const PlatePreview = (props) => {
@@ -13,6 +14,7 @@ const PlatePreview = (props) => {
 
   const priceWithComma = (props.price).toString().replace(".", ",")
  
+
   function favToggle() {
     setIsFav(prevState => !prevState)
   }
@@ -34,7 +36,7 @@ const PlatePreview = (props) => {
           />
       }
         <div>
-            <Details to="/plateDetails/:id">
+            <Details onClick={props.onClick}>
               <img src={`${api.defaults.baseURL}/files/${props.image}`} alt='foto do prato' />
               <h3 className="plate-title">{props.title + ' >'}</h3>
               {isDesktop && <p className="plate-description">{props.description}</p>}

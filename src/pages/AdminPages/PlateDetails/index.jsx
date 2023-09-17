@@ -1,20 +1,26 @@
-import HeaderUser from '../../../components/HeaderUser'
+import Header from '../../../components/Header'
 import CaretLeft from '../../../assets/icons/CaretLeft.svg'
-import Image from '../../../assets/meals/Mask group.png'
 import { Container } from './styles'
 import AmountHandler from '../../../components/AmountHandler'
 import Button from '../../../components/Button'
 import Footer from '../../../components/Footer'
-import MenuUser from '../../../components/MenuUser'
+import Menu from '../../../components/Menu'
 import { useState } from 'react'
 import IngredientTag from '../../../components/IngredientTag'
 
-const PlateDetailsAdmin = () => {
+import { api } from '../../../services/api'
+
+const PlateDetails = (props) => {
 const [menuOpen, setMenuOpen] = useState(false)
+
+
 
   return (
     <Container>
-        <HeaderUser setMenuOpen={setMenuOpen} />
+        <Header 
+        setMenuOpen={setMenuOpen} 
+        isAdmin={props.isAdmin}
+        />
 
         <div className="content">
             <div className="back-btn">
@@ -25,8 +31,8 @@ const [menuOpen, setMenuOpen] = useState(false)
             <div className="plate">
 
                 <div className="image-container">
-                    <img src={Image} alt="Imagem do prato" />
-                    <h2>Salada Ravanello</h2>
+                    <img src={`${api.defaults.baseURL}/files/${props.image}`} alt="Imagem do prato" />
+                    <h2>{props.title}</h2>
                 </div>
 
                 <div className="description-container">
@@ -46,10 +52,10 @@ const [menuOpen, setMenuOpen] = useState(false)
 
             </div>
         </div>
-        <MenuUser isOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <Menu isOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Footer />
     </Container>
   )
 }
 
-export default PlateDetailsAdmin
+export default PlateDetails

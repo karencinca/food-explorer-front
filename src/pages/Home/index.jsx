@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Footer from '../../components/Footer'
 import MenuUser from '../../components/Menu'
 import { Container } from './styles'
@@ -14,6 +15,11 @@ const Home = ({ isAdmin }) => {
 
   const [plates, setPlates] = useState({ meals: [], salads: [], desserts: [] })
 
+  const navigate = useNavigate()
+  
+  function handleDetails(id) {
+    navigate(`/platedetails/${id}`)
+  }
 
   useEffect(() => {
     async function fetchPlates() {
@@ -23,7 +29,6 @@ const Home = ({ isAdmin }) => {
       const desserts = response.data.filter(plate => plate.category === "dessert")
 
       setPlates({ meals, salads, desserts })
-      console.log(salads)
     }
 
     fetchPlates()
@@ -47,8 +52,8 @@ const Home = ({ isAdmin }) => {
                 <PlatePreview 
                   key={plate.id}
                   isAdmin={isAdmin}
+                  onClick={() => handleDetails(plate.id)}
                   {...plate}
-                  
                 />
               )}
               )}
@@ -61,8 +66,8 @@ const Home = ({ isAdmin }) => {
                 <PlatePreview 
                   key={plate.id}
                   isAdmin={isAdmin}
+                  onClick={() => handleDetails(plate.id)}
                   {...plate}
-                  
                 />
               )}
               )}
@@ -75,8 +80,8 @@ const Home = ({ isAdmin }) => {
                 <PlatePreview 
                   key={plate.id}
                   isAdmin={isAdmin}
+                  onClick={() => handleDetails(plate.id)}
                   {...plate}
-                  
                 />
               )}
               )}

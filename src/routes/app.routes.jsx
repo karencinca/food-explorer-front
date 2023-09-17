@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 
 import Home from '../pages/Home'
-import PlateDetails from '../pages/UserPages/PlateDetails'
+import PlateDetails from '../pages/AdminPages/PlateDetails'
 import AddNewPlate from '../pages/AdminPages/AddNewPlate'
 import EditPlate from '../pages/AdminPages/EditPlate'
 
