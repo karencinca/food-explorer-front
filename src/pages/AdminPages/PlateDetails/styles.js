@@ -22,37 +22,27 @@ export const Container = styled.div`
         }
 
         .plate {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            text-align: center;
             gap: 16px;
         }
     }
 
     .image-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
         > img {
             height: 200px;
             width: 200px;
             margin: 16px;
         }
-
+    }
+    
+    .description-container {
         > h2 {
             font-weight: 500;
             font-size: 2.7rem;
             line-height: 140%;
-
+    
         }
-    }
-
-    .description-container {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-
+        
         > p {
             text-align: center;
             font-weight: 400;
@@ -71,4 +61,38 @@ export const Container = styled.div`
             margin: 24px auto;
         }
     }
+
+    @media (min-width: 1024px) {
+        .content {
+            padding-left: 122px;
+            padding-right: 122px;
+        }
+    
+        main {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            
+            .description-container {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+            }
+
+            .button {
+                width: 131px;
+                padding: 12px 24px;
+                gap: 8px;
+            }
+        }
+        
+        .image-container {
+        > img {
+            height: 400px;
+            width: 400px;
+            margin: 47px;
+        }
+
+    }
+}
 `
