@@ -50,9 +50,10 @@ export const Container = styled.div`
 
     #image-file  {
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
+        cursor: pointer;
     }
 
-    #image-file, .select-wrapper select, textarea  {
+    #image-file, select, textarea  {
         width: 100%;
         height: 48px;
         display: flex;
@@ -74,12 +75,12 @@ export const Container = styled.div`
         margin-top: 16px;
     }
 
-    .select-wrapper, .ingredients-wrapper {
+    select, .ingredients-wrapper {
         background-color: ${({ theme }) => theme.COLORS.DARK_900};
         border-radius: 10px;
     }
     
-    .select-wrapper select {
+    select {
         color: ${({ theme }) => theme.COLORS.LIGHT_400};
         line-height: 160%;
     }
@@ -104,18 +105,19 @@ export const Container = styled.div`
         margin-top: 16px;
     }
 
-    .buttons-container {
+    .buttons {
         display: flex;
-        height: 48px;
-        gap: 32px;
-        margin-bottom: 50px;
+        grid-area: button;
+        justify-self: end;
+        gap: 3.2rem;
+        margin-bottom: 10rem;
     }
 
-    .delete-button {
+    .delete {
         background-color: ${({ theme }) => theme.COLORS.DARK_800};
     }
 
-    .save-button {
+    .save {
         background-color: ${({ theme }) => theme.COLORS.TOMATO_400};
     }
 
@@ -152,7 +154,7 @@ export const Container = styled.div`
                 "plateimage name category"
                 "ingredients ingredients price"
                 "description description description"
-                "buttons buttons buttons"
+                "button button button"
                 ;
                 gap: 32px;
             }
@@ -188,18 +190,6 @@ export const Container = styled.div`
 
             #category-input, #price-input, #description-input {
                 margin-top: 0;
-            }
-
-            .buttons-container {
-                grid-area: buttons;
-                justify-self: end;
-                width: 390px;
-                margin-bottom: 116px;
-            }
-            
-            .save-button {
-                padding: 12px 24px;
-                justify-self: end;
             }
         }
     }

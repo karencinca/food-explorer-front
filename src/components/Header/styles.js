@@ -44,7 +44,7 @@ export const Container = styled.header`
     .orders-btn {
         padding: auto 20px;
         font-size: 14px;
-        width: 220px;
+        max-width: 220px;
     }
 
     .sign-out {

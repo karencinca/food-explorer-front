@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Container } from './styles'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import Header from '../../../components/Header'
 import CaretLeft from '../../../assets/icons/CaretLeft.svg'
 import AmountHandler from '../../../components/AmountHandler'
@@ -16,6 +16,12 @@ const [menuOpen, setMenuOpen] = useState(false)
 const [data, setData] = useState(null)
 
 const params = useParams()
+
+const navigate = useNavigate()
+
+function editPlate(id) {
+    navigate(`/editplate/${id}`)
+}
 
 useEffect(() => {
     async function fetchPlate() {
@@ -67,7 +73,9 @@ useEffect(() => {
                         }
                         <Button 
                             className="button" 
-                            title={props.isAdmin ? 'Editar prato' : `incluir R$ ${data.price}`} />
+                            title={props.isAdmin ? 'Editar prato' : `incluir R$ ${data.price}`} 
+                            onClick={() => editPlate(data.id)}
+                        />
                         </div>
                     </div>
                 </main>

@@ -30,6 +30,7 @@ const Header = ({ isAdmin, menuOpen, setMenuOpen }) => {
 
       {isDesktop &&
         <Input
+          className='input-search'
           icon={Search} 
           placeholder='Busque por pratos ou ingredientes'
         />

@@ -11,4 +11,8 @@ export const Container = styled.button`
     border: none;
     font-size: 1.4rem;
     width: 100%;
+
+    @media (min-width: 1024px) {
+        width: 216px;
+    }
 `

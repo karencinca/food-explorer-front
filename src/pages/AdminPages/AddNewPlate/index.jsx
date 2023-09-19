@@ -95,7 +95,7 @@ const AddNewPlate = ({ isAdmin }) => {
                 </div>
 
                 <h2>
-                    Novo prato
+                    Adicionar prato
                 </h2>
 
                 <form>
