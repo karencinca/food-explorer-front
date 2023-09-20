@@ -14,10 +14,11 @@ export const Container = styled.div`
             align-items: center;
             gap: 10px;
 
-            > a {
+            > span {
                 font-weight: 500;
                 font-size: 2.4rem;
                 line-height: 140%;
+                cursor: pointer;
             }
         }
 

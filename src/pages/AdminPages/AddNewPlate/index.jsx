@@ -8,6 +8,7 @@ import Input from "../../../components/Input"
 import AddIngredientTag from "../../../components/AddIngredientTag"
 import Footer from '../../../components/Footer'
 import Button from "../../../components/Button"
+import Search from '../../../assets/icons/Search'
 
 import { useNavigate } from "react-router-dom"
 
@@ -80,13 +81,22 @@ const AddNewPlate = ({ isAdmin }) => {
         
     }
 
+    function goBack() {
+        navigate('/')
+    }
 
     return (
         <Container>
-            <Header 
-            setMenuOpen={setMenuOpen} 
-            isAdmin={isAdmin}
+        <Header
+        setMenuOpen={setMenuOpen} 
+        isAdmin={isAdmin}
+        >
+            <Input 
+            icon={Search} 
+            placeholder='Busque por pratos ou ingredientes'
+            onChange={goBack}
             />
+        </Header>
 
             <div className="content">
                 <div className="back-btn">

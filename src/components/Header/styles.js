@@ -37,6 +37,10 @@ export const Container = styled.header`
         padding-top: 30px;
     }
 
+    .inputbar {
+        width: 100%;
+    }
+
     .logo-title {
         width: 800px;
     }

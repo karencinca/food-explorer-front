@@ -14,11 +14,12 @@ export const Container = styled.div`
                 width: 8px;
             }
 
-            > a, img {
+            > span, img {
                 font-weight: 500;
                 font-size: 1.6rem;
                 line-height: 140%;
                 color: ${({ theme }) => theme.COLORS.LIGHT_300};
+                cursor: pointer;
             }
         }
     }
@@ -133,7 +134,7 @@ export const Container = styled.div`
             .back-btn {
                 margin-top: 40px;
                 
-                > a {
+                > span {
                     font-size: 2.4rem;
                     font-style: normal;
                     font-weight: 700;

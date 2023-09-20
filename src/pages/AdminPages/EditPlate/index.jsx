@@ -8,6 +8,7 @@ import Input from "../../../components/Input"
 import AddIngredientTag from "../../../components/AddIngredientTag"
 import Footer from '../../../components/Footer'
 import Button from "../../../components/Button"
+import Search from "../../../assets/icons/Search"
 
 import { useNavigate, useParams } from "react-router-dom"
 
@@ -32,6 +33,10 @@ const EditPlate = ({ isAdmin }) => {
 
     const navigate = useNavigate()
     const params = useParams()
+
+    function goBack() {
+        navigate(-1)
+    }
     
     function handleImageChange(e) {
         const file = e.target.files[0];
@@ -154,15 +159,21 @@ const EditPlate = ({ isAdmin }) => {
 
     return (
         <Container>
-            <Header 
+            <Header
             setMenuOpen={setMenuOpen} 
             isAdmin={isAdmin}
+            >
+            <Input 
+              icon={Search} 
+              placeholder='Busque por pratos ou ingredientes'
+              onChange={goBack}
             />
+          </Header>
 
             <div className="content">
                 <div className="back-btn">
                     <img src={CaretLeft} alt="" />
-                    <a href="/">voltar</a>
+                    <span onClick={goBack}>voltar</span>
                 </div>
 
                 <h2>

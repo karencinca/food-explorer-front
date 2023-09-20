@@ -8,6 +8,8 @@ import Button from '../../../components/Button'
 import Footer from '../../../components/Footer'
 import Menu from '../../../components/Menu'
 import IngredientTag from '../../../components/IngredientTag'
+import Input from '../../../components/Input'
+import Search from '../../../assets/icons/Search'
 
 import { api } from '../../../services/api'
 
@@ -18,6 +20,10 @@ const [data, setData] = useState(null)
 const params = useParams()
 
 const navigate = useNavigate()
+
+function goBack() {
+    navigate(-1)
+}
 
 function editPlate(id) {
     navigate(`/editplate/${id}`)
@@ -34,15 +40,21 @@ useEffect(() => {
 
     return (
     <Container>
-        <Header 
-        setMenuOpen={setMenuOpen} 
-        isAdmin={props.isAdmin}
-        />
+        <Header
+            setMenuOpen={setMenuOpen} 
+            isAdmin={props.isAdmin}
+            >
+                <Input 
+                icon={Search} 
+                placeholder='Busque por pratos ou ingredientes'
+                onChange={goBack}
+                />
+        </Header>
 
         <div className="content">
             <div className="back-btn">
                 <img src={CaretLeft} alt="" />
-                <a href="/">voltar</a>
+                <span onClick={goBack}>voltar</span>
             </div>
         {
             data && 

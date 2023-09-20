@@ -1,19 +1,19 @@
+import { Container } from './styles'
 import { useAuth } from '../../hooks/auth'
 import { AiOutlineMenu } from 'react-icons/ai'
 import LogoTitle from '../../assets/icons/LogoTitle'
 import LogoAdmin from '../../assets/icons/LogoAdmin'
 import Receipt from '../../assets/icons/Receipt'
-import Search from '../../assets/icons/Search'
+
 import SignOut from '../../assets/icons/SignOut'
-import Input from '../Input'
+
 import Button from '../Button'
-import { Container } from './styles'
 import { useMediaQuery } from 'react-responsive'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
  
-const Header = ({ isAdmin, menuOpen, setMenuOpen }) => {
+const Header = ({ isAdmin, menuOpen, setMenuOpen, children }) => {
   const isDesktop = useMediaQuery({ minWidth: 1024 })
+
   const { signOut } = useAuth()
 
   return (
@@ -29,11 +29,9 @@ const Header = ({ isAdmin, menuOpen, setMenuOpen }) => {
         {isAdmin ? <LogoAdmin /> : <LogoTitle />}
 
       {isDesktop &&
-        <Input
-          className='input-search'
-          icon={Search} 
-          placeholder='Busque por pratos ou ingredientes'
-        />
+        <div className='inputbar'>
+          {children}
+        </div>
       }
 
       {(!isDesktop && !isAdmin) &&

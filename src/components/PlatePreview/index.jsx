@@ -8,15 +8,22 @@ import { useMediaQuery } from "react-responsive"
 
 import { api } from '../../services/api'
 
+import { useNavigate } from "react-router-dom"
+
 const PlatePreview = (props) => {
   const [isFav, setIsFav] = useState(false)
   const isDesktop = useMediaQuery({ minWidth: 1024 })
 
   const priceWithComma = (props.price).toString().replace(".", ",")
- 
+
+  const navigate = useNavigate()
 
   function favToggle() {
     setIsFav(prevState => !prevState)
+  }
+
+  function editPlate(id) {
+    navigate(`/editplate/${id}`)
   }
 
   return (
@@ -26,6 +33,7 @@ const PlatePreview = (props) => {
           <BsPencil
             className='edit-pencil' 
             size={24}
+            onClick={() => editPlate(props.id)}
           />
         :
           <FiHeart 
