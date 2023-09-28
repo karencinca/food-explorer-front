@@ -1,23 +1,27 @@
 import { useState, useEffect } from 'react'
 import { Container } from './styles'
 import { useParams, useNavigate } from 'react-router-dom'
-import Header from '../../../components/Header'
-import CaretLeft from '../../../assets/icons/CaretLeft.svg'
-import AmountHandler from '../../../components/AmountHandler'
-import Button from '../../../components/Button'
-import Footer from '../../../components/Footer'
-import Menu from '../../../components/Menu'
-import IngredientTag from '../../../components/IngredientTag'
-import Input from '../../../components/Input'
-import Search from '../../../assets/icons/Search'
+import Header from '../../components/Header'
+import CaretLeft from '../../assets/icons/CaretLeft.svg'
+import AmountHandler from '../../components/AmountHandler'
+import Button from '../../components/Button'
+import Footer from '../../components/Footer'
+import Menu from '../../components/Menu'
+import IngredientTag from '../../components/IngredientTag'
+import Input from '../../components/Input'
+import Search from '../../assets/icons/Search'
 
-import { api } from '../../../services/api'
+import { api } from '../../services/api'
+import { useAuth } from '../../hooks/auth'
+import { USER_ROLE } from '../../utils/roles'
 
-const PlateDetails = (props) => {
+const PlateDetails = () => {
 const [menuOpen, setMenuOpen] = useState(false)
 const [data, setData] = useState(null)
 
 const params = useParams()
+
+const { user } = useAuth()
 
 const navigate = useNavigate()
 
@@ -42,7 +46,6 @@ useEffect(() => {
     <Container>
         <Header
             setMenuOpen={setMenuOpen} 
-            isAdmin={props.isAdmin}
             >
                 <Input 
                 icon={Search} 
@@ -80,12 +83,12 @@ useEffect(() => {
                         }
                         <div>
                         {
-                            !props.isAdmin &&
+                            user.role !== USER_ROLE.ADMIN &&
                             <AmountHandler />
                         }
                         <Button 
                             className="button" 
-                            title={props.isAdmin ? 'Editar prato' : `incluir R$ ${data.price}`} 
+                            title={user.role === USER_ROLE.ADMIN ? 'Editar prato' : `incluir R$ ${data.price}`} 
                             onClick={() => editPlate(data.id)}
                         />
                         </div>

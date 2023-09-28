@@ -69,6 +69,7 @@ const SignIn = () => {
                     />
                 </div>
                 <Button 
+                    className="register-button"
                     title="Criar conta" 
                     onClick={handleSignUp}    
                 />

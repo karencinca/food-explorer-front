@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Container } from './styles'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../../components/Footer'
-import MenuUser from '../../components/Menu'
+import Menu from '../../components/Menu'
 import Banner from '../../components/Banner'
 import ScrollPlates from '../../components/ScrollPlates'
 import PlatePreview from '../../components/PlatePreview'
@@ -12,7 +12,7 @@ import Search from '../../assets/icons/Search'
 
 import { api } from '../../services/api'
 
-const Home = ({ isAdmin }) => {
+const Home = () => {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const [plates, setPlates] = useState({ meals: [], salads: [], desserts: [] })
@@ -26,7 +26,7 @@ const Home = ({ isAdmin }) => {
 
   useEffect(() => {
     async function fetchPlates() {
-      const response = await api.get(`/plates?title=${search}`)
+      const response = await api.get(`/plates/?title=${search}`)
       const meals = response.data.filter(plate => plate.category === "meal")
       const salads = response.data.filter(plate => plate.category === "salad")
       const desserts = response.data.filter(plate => plate.category === "dessert")
@@ -41,7 +41,6 @@ const Home = ({ isAdmin }) => {
     <Container>
       <Header
        setMenuOpen={setMenuOpen} 
-       isAdmin={isAdmin}
       >
         <Input 
           icon={Search} 
@@ -60,7 +59,6 @@ const Home = ({ isAdmin }) => {
                     return (       
                       <PlatePreview 
                         key={plate.id}
-                        isAdmin={isAdmin}
                         onClick={() => handleDetails(plate.id)}
                         {...plate}
                       />
@@ -79,7 +77,6 @@ const Home = ({ isAdmin }) => {
                     return (       
                       <PlatePreview 
                         key={plate.id}
-                        isAdmin={isAdmin}
                         onClick={() => handleDetails(plate.id)}
                         {...plate}
                       />
@@ -97,7 +94,6 @@ const Home = ({ isAdmin }) => {
                     return (       
                       <PlatePreview 
                         key={plate.id}
-                        isAdmin={isAdmin}
                         onClick={() => handleDetails(plate.id)}
                         {...plate}
                       />
@@ -114,7 +110,7 @@ const Home = ({ isAdmin }) => {
           }
         </div>
 
-        <MenuUser isOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <Menu isOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
       <Footer />
     </Container>

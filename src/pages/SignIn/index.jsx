@@ -44,7 +44,7 @@ const SignIn = () => {
                     onChange={e => setPassword(e.target.value)}
                   />
               </div>
-              <Button title="Entrar" onClick={handleSignIn} />
+              <Button className="login-button" title="Entrar" onClick={handleSignIn} />
               
                 <ButtonText>
                   <Link to="/register">Criar uma conta</Link>

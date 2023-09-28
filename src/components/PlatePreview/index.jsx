@@ -5,7 +5,8 @@ import { FiHeart } from 'react-icons/fi'
 import { BsPencil } from 'react-icons/bs'
 import { useState } from "react"
 import { useMediaQuery } from "react-responsive"
-
+import { useAuth } from "../../hooks/auth"
+import { USER_ROLE } from '../../utils/roles'
 import { api } from '../../services/api'
 
 import { useNavigate } from "react-router-dom"
@@ -17,6 +18,7 @@ const PlatePreview = (props) => {
   const priceWithComma = (props.price).toString().replace(".", ",")
 
   const navigate = useNavigate()
+  const { user } = useAuth()
 
   function favToggle() {
     setIsFav(prevState => !prevState)
@@ -29,7 +31,7 @@ const PlatePreview = (props) => {
   return (
     <Container>
       {
-        props.isAdmin ? 
+        user.role === USER_ROLE.ADMIN ? 
           <BsPencil
             className='edit-pencil' 
             size={24}
@@ -51,8 +53,8 @@ const PlatePreview = (props) => {
             </Details>
             <span className="price">R$ {priceWithComma}</span>
             <div className="stepper-button-wrapper">
-              {!props.isAdmin && <AmountHandler />}
-              {!props.isAdmin && <Button title="incluir" />}
+              {!user.role === USER_ROLE.ADMIN && <AmountHandler />}
+              {!user.role === USER_ROLE.ADMIN && <Button title="incluir" />}
             </div>
         </div>
     </Container>

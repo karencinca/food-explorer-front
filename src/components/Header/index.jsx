@@ -10,11 +10,12 @@ import SignOut from '../../assets/icons/SignOut'
 import Button from '../Button'
 import { useMediaQuery } from 'react-responsive'
 import { Link } from 'react-router-dom'
+import { USER_ROLE } from '../../utils/roles'
  
-const Header = ({ isAdmin, menuOpen, setMenuOpen, children }) => {
+const Header = ({ menuOpen, setMenuOpen, children }) => {
   const isDesktop = useMediaQuery({ minWidth: 1024 })
 
-  const { signOut } = useAuth()
+  const { user, signOut } = useAuth()
 
   return (
     <Container>
@@ -26,7 +27,7 @@ const Header = ({ isAdmin, menuOpen, setMenuOpen, children }) => {
           />
         }
 
-        {isAdmin ? <LogoAdmin /> : <LogoTitle />}
+        {user.role === USER_ROLE.ADMIN ? <LogoAdmin /> : <LogoTitle />}
 
       {isDesktop &&
         <div className='inputbar'>
@@ -34,14 +35,14 @@ const Header = ({ isAdmin, menuOpen, setMenuOpen, children }) => {
         </div>
       }
 
-      {(!isDesktop && !isAdmin) &&
+      {(!isDesktop && user.role !== USER_ROLE.ADMIN) &&
         <div className='cart-wrapper'>
           <Receipt />
           <div className='cart-number'> <span>0</span></div>
         </div>
       }
 
-      {isAdmin ?
+      {user.role === USER_ROLE.ADMIN ?
           <Link to="/newplate">
             <Button
             className='orders-btn' 

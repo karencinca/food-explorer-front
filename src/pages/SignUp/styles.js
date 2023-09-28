@@ -63,6 +63,10 @@ export const Container = styled.div`
                 text-align: center;
                 margin-bottom: 32px;
             }
+
+            .register-button {
+                width: 100%;
+            }
         }
     }
 `

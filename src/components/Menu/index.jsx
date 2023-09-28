@@ -3,10 +3,16 @@ import { Container } from "./styles"
 import Input from '../Input'
 import { AiOutlineClose } from 'react-icons/ai'
 import Search from '../../assets/icons/Search'
-import { useState } from "react"
+import { USER_ROLE } from '../../utils/roles'
+import { useNavigate } from 'react-router-dom'
 
-const Menu = ({ isAdmin, isOpen, setMenuOpen }) => {
-    const { signOut } = useAuth()
+const Menu = ({ isOpen, setMenuOpen }) => {
+    const { user, signOut } = useAuth()
+    const navigate = useNavigate()
+
+    function newPlate() {
+        navigate('newplate')
+    }
     
     if (isOpen) {
         return (
@@ -28,7 +34,7 @@ const Menu = ({ isAdmin, isOpen, setMenuOpen }) => {
                   />
       
                   <nav>
-                      {isAdmin && <li>Novo prato</li>}
+                      {user.role === USER_ROLE.ADMIN && <li onClick={newPlate}>Novo prato</li>}
                       <li onClick={signOut}>Sair</li>
                   </nav>
       

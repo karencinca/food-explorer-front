@@ -1,18 +1,18 @@
 import { Container } from "./styles"
 import { useState, useEffect } from "react"
-import Header from "../../../components/Header"
-import Menu from "../../../components/Menu"
-import CaretLeft from '../../../assets/icons/CaretLeft.svg'
+import Header from "../../components/Header"
+import Menu from "../../components/Menu"
+import CaretLeft from '../../assets/icons/CaretLeft.svg'
 import { FiUpload } from 'react-icons/fi'
-import Input from "../../../components/Input"
-import AddIngredientTag from "../../../components/AddIngredientTag"
-import Footer from '../../../components/Footer'
-import Button from "../../../components/Button"
-import Search from "../../../assets/icons/Search"
+import Input from "../../components/Input"
+import AddIngredientTag from "../../components/AddIngredientTag"
+import Footer from '../../components/Footer'
+import Button from "../../components/Button"
+import Search from "../../assets/icons/Search"
 
 import { useNavigate, useParams } from "react-router-dom"
 
-import { api } from "../../../services/api"
+import { api } from "../../services/api"
 
 const EditPlate = ({ isAdmin }) => {
     const [menuOpen, setMenuOpen] = useState(false)

@@ -63,6 +63,10 @@ export const Container = styled.div`
                 text-align: center;
                 margin-bottom: 32px;
             }
+
+            .login-button {
+                width: 100%;
+            }
         }
     }
 `

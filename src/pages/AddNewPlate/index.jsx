@@ -1,18 +1,18 @@
 import { Container } from "./styles"
 import { useState } from "react"
-import Header from "../../../components/Header"
-import Menu from "../../../components/Menu"
-import CaretLeft from '../../../assets/icons/CaretLeft.svg'
+import Header from '../../components/Header'
+import Menu from "../../components/Menu"
+import CaretLeft from '../../assets/icons/CaretLeft.svg'
 import { FiUpload } from 'react-icons/fi'
-import Input from "../../../components/Input"
-import AddIngredientTag from "../../../components/AddIngredientTag"
-import Footer from '../../../components/Footer'
-import Button from "../../../components/Button"
-import Search from '../../../assets/icons/Search'
+import Input from "../../components/Input"
+import AddIngredientTag from "../../components/AddIngredientTag"
+import Footer from '../../components/Footer'
+import Button from "../../components/Button"
+import Search from '../../assets/icons/Search'
 
 import { useNavigate } from "react-router-dom"
 
-import { api } from "../../../services/api"
+import { api } from "../../services/api"
 
 const AddNewPlate = ({ isAdmin }) => {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -201,7 +201,6 @@ const AddNewPlate = ({ isAdmin }) => {
              setMenuOpen={setMenuOpen}
              isAdmin={isAdmin} 
              />
-        
         </Container>
   )
 }
