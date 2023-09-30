@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
     background-color: ${({ theme }) => theme.COLORS.DARK_300};
@@ -91,7 +90,8 @@ export const Details = styled.div`
         font-size: 1.4rem;
         line-height: 2.4rem;
         text-align: center;
-        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; 
         }
 
     > p {

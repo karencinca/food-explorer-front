@@ -26,16 +26,23 @@ const Home = () => {
 
   useEffect(() => {
     async function fetchPlates() {
-      const response = await api.get(`/plates/?title=${search}`)
-      const meals = response.data.filter(plate => plate.category === "meal")
-      const salads = response.data.filter(plate => plate.category === "salad")
-      const desserts = response.data.filter(plate => plate.category === "dessert")
 
-      setPlates({ meals, salads, desserts })
+      try {
+        const response = await api.get(`plates/?searchQuery=${search.toLowerCase()}`)
+        const meals = response.data.filter(plate => plate.category === "meal")
+        const salads = response.data.filter(plate => plate.category === "salad")
+        const desserts = response.data.filter(plate => plate.category === "dessert")
+        
+        setPlates({ meals, salads, desserts })
+
+      } catch (error) {
+        console.error('Error fetching plates:', error)
+      }
     }
 
     fetchPlates()
   }, [search])
+  
 
   return (
     <Container>
@@ -52,7 +59,8 @@ const Home = () => {
       <div className='content'>
           <Banner />
           <div className='plates'>
-              {plates.meals.length > 0 &&
+              {
+              plates.meals.length > 0 &&
                 <ScrollPlates title="Refeições" >
                 {
                   plates.meals.map(plate => {
