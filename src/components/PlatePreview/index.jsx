@@ -54,7 +54,7 @@ const PlatePreview = (props) => {
             <span className="price">R$ {priceWithComma}</span>
             <div className="stepper-button-wrapper">
               {user.role !== USER_ROLE.ADMIN && <AmountHandler />}
-              {user.role !== USER_ROLE.ADMIN && <Button title="incluir" />}
+              {user.role !== USER_ROLE.ADMIN && <Button title='incluir' className='button' />}
             </div>
         </div>
     </Container>

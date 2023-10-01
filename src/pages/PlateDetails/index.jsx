@@ -10,6 +10,7 @@ import Menu from '../../components/Menu'
 import IngredientTag from '../../components/IngredientTag'
 import Input from '../../components/Input'
 import Search from '../../assets/icons/Search'
+import Receipt from '../../assets/icons/Receipt'
 
 import { api } from '../../services/api'
 import { useAuth } from '../../hooks/auth'
@@ -81,14 +82,15 @@ useEffect(() => {
                                     }
                                 </div>
                         }
-                        <div>
+                        <div className="stepper-button-wrapper">
                         {
                             user.role !== USER_ROLE.ADMIN &&
                             <AmountHandler />
                         }
                         <Button 
                             className="button" 
-                            title={user.role === USER_ROLE.ADMIN ? 'Editar prato' : `incluir R$ ${data.price}`} 
+                            title={user.role === USER_ROLE.ADMIN ? 'Editar prato' : 
+                            `pedir R$ ${data.price}`} 
                             onClick={() => editPlate(data.id)}
                         />
                         </div>

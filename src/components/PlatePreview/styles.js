@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
     background-color: ${({ theme }) => theme.COLORS.DARK_300};
     max-width: 210px;
+    min-width: 210px;
     min-height: 292px;
     position: relative;
     padding: 24px;
@@ -23,6 +24,10 @@ export const Container = styled.div`
         flex-direction: column;
         align-items: center;
         gap: 12px;
+
+        > h3 {
+            
+        }
         
 
         > span {
@@ -34,16 +39,14 @@ export const Container = styled.div`
         }
 
         .stepper-button-wrapper {
-            display: flex;
-            flex-direction: column;
             gap: 16px;
-            align-items: center;
-            justify-content: center;
+            text-align: center;
 
             > button {
-                width: 162px;
+                max-width: 162px;
                 height: 32px;
                 padding: 12px 24px;
+                margin-top: 16px;
             }
         }
 
@@ -67,7 +70,14 @@ export const Container = styled.div`
             align-items: center;
             flex-direction: row;
             gap: 16px;
+
+            > .button {
+                max-width: 92px;
+                height: 48px;
+                margin-top: 0;
+            }
         }
+        
     }
 `
 
@@ -91,6 +101,8 @@ export const Details = styled.div`
         line-height: 2.4rem;
         text-align: center;
         overflow: hidden;
+        white-space: nowrap;
+        max-width: 200px;
         text-overflow: ellipsis; 
         }
 

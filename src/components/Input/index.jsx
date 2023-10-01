@@ -1,9 +1,13 @@
 import { Container } from "./styles" 
 
-const Input = ({icon: Icon, ...rest }) => {
+const Input = ({ icon, ...rest }) => {
     return (
         <Container>
-            {Icon && <Icon size={20} />}
+            {icon && (
+                <div className="icon-container">
+                    {icon}
+                </div>
+            )}
             <input
             {...rest}
             />

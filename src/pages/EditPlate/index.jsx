@@ -181,6 +181,7 @@ const EditPlate = ({ isAdmin }) => {
                 </h2>
 
                 <form>
+                  <div className="first-line">
                     <div className="input-wrapper image-plate">
                         <p className="label-title">Imagem do prato</p>
                         <label htmlFor="plate-image" className="image-file" id="image-file">
@@ -218,6 +219,8 @@ const EditPlate = ({ isAdmin }) => {
                                 <option value="dessert">Sobremesa</option>
                             </select>
                     </div>
+                  </div>
+                  <div className="second-line">
                         <div className="input-wrapper ingredients-container">
                             <p className="label-title">Ingredientes</p>
                             <div className="ingredients-wrapper">
@@ -251,6 +254,8 @@ const EditPlate = ({ isAdmin }) => {
                         onChange={e => setPrice(e.target.value)}
                         />
                     </div>
+
+                  </div>
                     <div className="input-wrapper plate-description">
                         <label htmlFor="description" id="description-input">Descrição</label>
                         <textarea

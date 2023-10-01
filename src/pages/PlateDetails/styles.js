@@ -61,6 +61,11 @@ export const Container = styled.div`
             align-items: center;
             margin: 24px auto;
         }
+
+        .stepper-button-wrapper {
+            display: flex;
+            gap: 16px;
+        }
     }
 
     @media (min-width: 1024px) {

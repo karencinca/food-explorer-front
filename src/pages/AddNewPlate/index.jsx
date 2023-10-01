@@ -109,43 +109,46 @@ const AddNewPlate = ({ isAdmin }) => {
                 </h2>
 
                 <form>
-                    <div className="input-wrapper image-plate">
-                        <p className="label-title">Imagem do prato</p>
-                        <label htmlFor="plate-image" className="image-file" id="image-file">
-                            {<FiUpload 
-                                size={24}
-                            />}
-                            {fileName || 'Selecione imagem'}
-                        <Input 
-                            type="file" 
-                            id='plate-image' 
-                            onChange={handleImageChange}
+                    <div className="first-line">
+                        <div className="input-wrapper image-plate">
+                            <p className="label-title">Imagem do prato</p>
+                            <label htmlFor="plate-image" className="image-file" id="image-file">
+                                {<FiUpload 
+                                    size={24}
+                                />}
+                                {fileName || <p>Selecione imagem</p>}
+                            <Input 
+                                type="file" 
+                                id='plate-image' 
+                                onChange={handleImageChange}
+                                />
+                            </label>
+                        </div>
+                        <div className="input-wrapper name-plate">
+                            <label htmlFor="plate-name" className="label-title">Nome</label>
+                            <Input
+                            id='plate-name' 
+                            placeholder='Ex.: Salada Ceasar'
+                            value={title}
+                            onChange={e => setTitle(e.target.value)}
                             />
-                        </label>
+                        </div>
+                        <div className="input-wrapper category-plate">
+                            <label htmlFor="category" id="category-input">Categoria</label>
+                                <select 
+                                name="category" 
+                                id="category"
+                                value={category}
+                                onChange={e => setCategory(e.target.value)}
+                                >
+                                    <option value="">-- Selecione --</option>
+                                    <option value="meal">Refeição</option>
+                                    <option value="salad">Salada</option>
+                                    <option value="dessert">Sobremesa</option>
+                                </select>
+                        </div>
                     </div>
-                    <div className="input-wrapper name-plate">
-                        <label htmlFor="plate-name" className="label-title">Nome</label>
-                        <Input
-                        id='plate-name' 
-                        placeholder='Ex.: Salada Ceasar'
-                        value={title}
-                        onChange={e => setTitle(e.target.value)}
-                        />
-                    </div>
-                    <div className="input-wrapper category-plate">
-                        <label htmlFor="category" id="category-input">Categoria</label>
-                            <select 
-                            name="category" 
-                            id="category"
-                            value={category}
-                            onChange={e => setCategory(e.target.value)}
-                            >
-                                <option value="">-- Selecione --</option>
-                                <option value="meal">Refeição</option>
-                                <option value="salad">Salada</option>
-                                <option value="dessert">Sobremesa</option>
-                            </select>
-                    </div>
+                    <div className="second-line">
                         <div className="input-wrapper ingredients-container">
                             <p className="label-title">Ingredientes</p>
                             <div className="ingredients-wrapper">
@@ -177,6 +180,8 @@ const AddNewPlate = ({ isAdmin }) => {
                         placeholder='R$ 00,00' 
                         onChange={e => setPrice(e.target.value)}
                         />
+                    </div>
+
                     </div>
                     <div className="input-wrapper plate-description">
                         <label htmlFor="description" id="description-input">Descrição</label>

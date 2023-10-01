@@ -50,7 +50,7 @@ const Home = () => {
        setMenuOpen={setMenuOpen} 
       >
         <Input 
-          icon={Search} 
+          icon={<Search />} 
           placeholder='Busque por pratos ou ingredientes'
           onChange={(e) => setSearch(e.target.value)}
         />

@@ -3,6 +3,7 @@ import { useAuth } from '../../hooks/auth'
 import { AiOutlineMenu } from 'react-icons/ai'
 import LogoTitle from '../../assets/icons/LogoTitle'
 import LogoAdmin from '../../assets/icons/LogoAdmin'
+import LogoAdminMobile from '../../assets/icons/LogoAdminMobile'
 import Receipt from '../../assets/icons/Receipt'
 
 import SignOut from '../../assets/icons/SignOut'
@@ -27,7 +28,18 @@ const Header = ({ menuOpen, setMenuOpen, children }) => {
           />
         }
 
-        {user.role === USER_ROLE.ADMIN ? <LogoAdmin /> : <LogoTitle />}
+        {(isDesktop && user.role === USER_ROLE.ADMIN) &&
+          <LogoAdmin />
+        }
+
+        {(!isDesktop && user.role === USER_ROLE.ADMIN) &&
+          <LogoAdminMobile />
+        }
+
+        {user.role !== USER_ROLE.ADMIN &&
+          <LogoTitle />
+        }
+        
 
       {isDesktop &&
         <div className='inputbar'>
@@ -42,19 +54,25 @@ const Header = ({ menuOpen, setMenuOpen, children }) => {
         </div>
       }
 
-      {user.role === USER_ROLE.ADMIN ?
-          <Link to="/newplate">
+
+
+        {(isDesktop && user.role === USER_ROLE.ADMIN) &&
+            <Link to="/newplate">
+              <Button
+              className='orders-btn' 
+              title='Novo prato'
+              /> 
+            </Link>
+        }
+
+          {(isDesktop && user.role !== USER_ROLE.ADMIN) &&
             <Button
             className='orders-btn' 
-            title='Novo prato'
-            /> 
-          </Link> :
-          <Button
-          className='orders-btn' 
-          icon={Receipt}
-          title='Pedidos (0)'
-          />
-      }
+            icon={Receipt}
+            title='Pedidos (0)'
+            />
+        }
+
 
       {isDesktop &&
       <button className='sign-out' onClick={signOut}>

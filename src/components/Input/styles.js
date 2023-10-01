@@ -18,13 +18,17 @@ export const Container = styled.div`
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
         font-size: 14px;
         border: none;
+        outline: none;
 
         &::placeholder {
             color: ${({ theme }) => theme.COLORS.LIGHT_500};
         }
+
     }
 
-    > svg {
-        margin-left: 20px;
+    > .icon-container {
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
     }
 `

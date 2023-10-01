@@ -149,31 +149,31 @@ export const Container = styled.div`
             }
 
             form {
-                display: grid;
-                grid-template-columns: 1fr 2fr 1fr;
-                grid-template-areas:
-                "plateimage name category"
-                "ingredients ingredients price"
-                "description description description"
-                "button button button"
-                ;
-                gap: 32px;
+                display: flex;
+                flex-direction: column;
+                gap: 3.2rem;
+            }
+
+            .first-line, .second-line {
+                display: flex;
+                flex-direction: row;
+                gap: 3.2rem;
             }
 
             .image-plate {
-                grid-area: plateimage;
+                max-width: 23rem;
             }
 
             .name-plate {
-                grid-area: name;
+                max-width: 46.3rem;
             }
 
             .category-plate {
-                grid-area: category;
+                max-width: 36.4rem;
             }
 
             .ingredients-container {
-                grid-area: ingredients;
+                max-width: 83.7rem;
                 margin-top: 0;
                 
                 .ingredients-wrapper {
@@ -182,11 +182,11 @@ export const Container = styled.div`
             }
 
             .plate-price {
-                grid-area: price;
+                max-width: 25.1rem;
             }
 
             .plate-description {
-                grid-area: description;
+                max-width: 112rem;
             }
 
             #category-input, #price-input, #description-input {
