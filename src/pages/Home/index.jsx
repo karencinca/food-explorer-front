@@ -17,6 +17,7 @@ const Home = () => {
 
   const [plates, setPlates] = useState({ meals: [], salads: [], desserts: [] })
   const [search, setSearch] = useState('')
+  const [loading, setLoading] = useState(true)
 
   const navigate = useNavigate()
   
@@ -28,6 +29,7 @@ const Home = () => {
     async function fetchPlates() {
 
       try {
+        setLoading(true)
         const response = await api.get(`plates/?searchQuery=${search.toLowerCase()}`)
         const meals = response.data.filter(plate => plate.category === "meal")
         const salads = response.data.filter(plate => plate.category === "salad")
@@ -36,7 +38,9 @@ const Home = () => {
         setPlates({ meals, salads, desserts })
 
       } catch (error) {
-        console.error('Error fetching plates:', error)
+        console.error('Error fetching dishes', error)
+      } finally {
+        setLoading(false)
       }
     }
 
@@ -58,6 +62,9 @@ const Home = () => {
 
       <div className='content'>
           <Banner />
+
+          {loading ? <div className='loader-container'><div className='loader'></div></div> : 
+
           <div className='plates'>
               {
               plates.meals.length > 0 &&
@@ -110,10 +117,11 @@ const Home = () => {
                 </ScrollPlates>
             }
           </div>
+          }
 
-          {plates.meals.length < 1 &&
-          plates.salads.length < 1 &&
-          plates.desserts.length < 1 &&
+          {(!loading && plates.meals.length < 1) &&
+          (!loading && plates.salads.length < 1) &&
+          (!loading && plates.desserts.length < 1) &&
             <h2 className='emptypage'>Sem pratos cadastrados.</h2>
           }
         </div>

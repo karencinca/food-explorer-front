@@ -68,6 +68,33 @@ export const Container = styled.div`
         }
     }
 
+    .loader-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+    }
+
+    .loader {
+        width: 48px;
+        height: 48px;
+        border: 5px solid #FFF;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        display: flex;
+        animation: rotation 1s linear infinite;
+        text-align: center;
+    }
+
+        @keyframes rotation {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
     @media (min-width: 1024px) {
         .content {
             padding-left: 122px;

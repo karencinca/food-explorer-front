@@ -19,6 +19,7 @@ import { USER_ROLE } from '../../utils/roles'
 const PlateDetails = () => {
 const [menuOpen, setMenuOpen] = useState(false)
 const [data, setData] = useState(null)
+const [loading, setLoading] = useState(true)
 
 const params = useParams()
 
@@ -36,10 +37,16 @@ function editPlate(id) {
 
 useEffect(() => {
     async function fetchPlate() {
-        const response = await api.get(`/plates/${params.id}`)
-        setData(response.data)
+        try {
+            setLoading(true)
+            const response = await api.get(`/plates/${params.id}`)
+            setData(response.data)
+        } catch (error) {
+            console.error('Error fetching dish', error)
+        } finally {
+            setLoading(false)
+        }
     }
-
     fetchPlate()
 }, [])
 
@@ -60,8 +67,10 @@ useEffect(() => {
                 <img src={CaretLeft} alt="" />
                 <span onClick={goBack}>voltar</span>
             </div>
-        {
-            data && 
+
+        {loading && <div className='loader-container'><div className='loader'></div></div>} 
+
+            {(!loading && data) && 
                 <main className="plate">
                     <div className="image-container">
                         <img src={`${api.defaults.baseURL}/files/${data.image}`} alt="Imagem do prato" />

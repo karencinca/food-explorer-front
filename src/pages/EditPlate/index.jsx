@@ -16,6 +16,7 @@ import { api } from "../../services/api"
 
 const EditPlate = ({ isAdmin }) => {
     const [menuOpen, setMenuOpen] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     const [plate, setPlate] = useState(null)
 
@@ -136,8 +137,15 @@ const EditPlate = ({ isAdmin }) => {
 
     useEffect(() => {
         async function fetchPlate() {
+          try {
+            setLoading(true)
             const response = await api.get(`/plates/${params.id}`)
             setPlate(response.data)
+          } catch (error) {
+            console.error('Error fetching dishes:', error)
+          } finally {
+            setLoading(false)
+          }
         }
     
         fetchPlate()
@@ -170,6 +178,7 @@ const EditPlate = ({ isAdmin }) => {
             />
           </Header>
 
+
             <div className="content">
                 <div className="back-btn">
                     <img src={CaretLeft} alt="" />
@@ -180,6 +189,7 @@ const EditPlate = ({ isAdmin }) => {
                     Editar prato
                 </h2>
 
+          {loading ? <div className='loader-container'><div className='loader'></div></div> :
                 <form>
                   <div className="first-line">
                     <div className="input-wrapper image-plate">
@@ -282,6 +292,7 @@ const EditPlate = ({ isAdmin }) => {
                     </div>
                         
                 </form>
+              }
             </div>
             <Footer />
             <Menu

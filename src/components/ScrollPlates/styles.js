@@ -39,6 +39,7 @@ export const Container = styled.div`
             position: absolute;
             left: 0;
             z-index: 10;
+            pointer-events: none;
         }
 
         .linear-gradient-right {
@@ -48,6 +49,7 @@ export const Container = styled.div`
             height: 462px;
             right: 0;
             z-index: 10;
+            pointer-events: none;
         }
 
         .caret-left, .caret-right{
@@ -55,6 +57,7 @@ export const Container = styled.div`
             position: absolute;
             cursor: pointer;
             transition: .3s;
+            pointer-events: auto;
         }
         
         .caret-left {

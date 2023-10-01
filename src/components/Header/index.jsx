@@ -18,12 +18,16 @@ const Header = ({ menuOpen, setMenuOpen, children }) => {
 
   const { user, signOut } = useAuth()
 
+  function openMenu() {
+    setMenuOpen(!menuOpen)
+  }
+
   return (
     <Container>
       {
         (!menuOpen && !isDesktop) &&
         <AiOutlineMenu 
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={openMenu}
           size={24} 
           />
         }

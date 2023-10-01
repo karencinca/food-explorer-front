@@ -1,11 +1,26 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    height: 100vh;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
+
+    .closed {
+        display: none;
+    }
+
+    .menu.open{
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transition: transform 0.3s ease-in-out;
+        animation: slide-in .5s forwards;
+    }
+
+    .menu.closing {
+        transition: transform 0.3s ease-in-out;
+        animation: slide-out .5s forwards;
+        
+    }
     
     .menu-header {
         height: 114px;
@@ -48,5 +63,24 @@ export const Container = styled.div`
         background: none;
         border: none;
     }
+
+
+    @keyframes slide-in {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+}
+
+    @keyframes slide-out {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+}
 
 `
