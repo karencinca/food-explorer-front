@@ -33,10 +33,15 @@ export const Container = styled.div`
             height: 200px;
             width: 200px;
             margin: 16px;
+            border-radius: 50%;
         }
     }
     
     .description-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
         > h2 {
             font-weight: 500;
             font-size: 2.7rem;
@@ -65,6 +70,10 @@ export const Container = styled.div`
         .stepper-button-wrapper {
             display: flex;
             gap: 16px;
+
+            > button {
+                font-size: .9rem;
+            }
         }
     }
 
@@ -112,10 +121,18 @@ export const Container = styled.div`
                 align-items: start;
             }
 
-            .button {
-                width: 131px;
-                padding: 12px 24px;
-                gap: 8px;
+            .stepper-button-wrapper {
+                > .button {
+                    width: 17rem;
+                    padding: 12px 24px;
+                    gap: 8px;
+                    font-size: 1.4rem;
+    
+                    > svg {
+                        display: none;
+                    }
+                }
+
             }
         }
         

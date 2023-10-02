@@ -96,12 +96,23 @@ useEffect(() => {
                             user.role !== USER_ROLE.ADMIN &&
                             <AmountHandler />
                         }
-                        <Button 
-                            className="button" 
-                            title={user.role === USER_ROLE.ADMIN ? 'Editar prato' : 
-                            `pedir R$ ${data.price}`} 
-                            onClick={() => editPlate(data.id)}
-                        />
+                        {
+                            user.role === USER_ROLE.ADMIN &&
+                            <Button 
+                                className='button' 
+                                title='Editar prato'  
+                                onClick={() => editPlate(data.id)}
+                            />
+                        }
+
+                        {
+                            user.role !== USER_ROLE.ADMIN &&
+                            <Button 
+                                className='button'
+                                title={`incluir ∙ R$ ${data.price}`}
+                                icon={Receipt}
+                            />
+                        }
                         </div>
                     </div>
                 </main>

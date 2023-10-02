@@ -46,12 +46,15 @@ export const Container = styled.div`
 
     input[type='file'] {
         display: none;
-
     }
 
     #image-file  {
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
         cursor: pointer;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin-bottom: 2.4rem;
     }
 
     #image-file, select, textarea  {
@@ -148,7 +151,6 @@ export const Container = styled.div`
             transform: rotate(360deg);
         }
     } 
-
 
     footer {
         bottom: 0;

@@ -51,6 +51,9 @@ export const Container = styled.div`
     #image-file  {
         color: ${({ theme }) => theme.COLORS.LIGHT_100};
         cursor: pointer;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
     #image-file, select, textarea  {

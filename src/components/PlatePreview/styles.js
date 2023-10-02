@@ -25,10 +25,6 @@ export const Container = styled.div`
         align-items: center;
         gap: 12px;
 
-        > h3 {
-            
-        }
-        
 
         > span {
             font-family: 'Roboto', sans-serif;
@@ -92,6 +88,7 @@ export const Details = styled.div`
     > img {
         width: 88px;
         height: 88px;
+        border-radius: 50%;
     }
 
     > h3 {
