@@ -1,13 +1,16 @@
 import { BrowserRouter } from "react-router-dom"
 import { useAuth } from "../hooks/auth"
+import { useEffect } from "react";
 
 import AdminRoutes from "./admin.routes";
 import CustomerRoutes from "./customer.routes";
 import AuthRoutes from "./auth.routes";
 import { USER_ROLE } from "../utils/roles";
+import { api } from "../services/api";
+
 
 const Routes = () => {
-    const { user } = useAuth()
+    const { user, signOut } = useAuth()
 
     function AccessRoute() {
         switch(user.role) {
@@ -19,6 +22,16 @@ const Routes = () => {
                 return <CustomerRoutes />
         }
     }
+
+    useEffect(() => {
+        api
+        .get('/users/validated')
+        .catch((error) => {
+            if (error.response?.status === 401) {
+                signOut()
+            }
+        })
+    }, [])
 
     return (
         <BrowserRouter>
