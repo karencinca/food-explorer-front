@@ -7,12 +7,11 @@ function AuthProvider({ children }) {
     const [data, setData] = useState({})
 
     async function signIn({ email, password }) {
-
         try {
             const response = await api.post(
                 "sessions", 
                 { email, password }, 
-                { withCredentials: true },
+                { withCredentials: true }
             )
 
             const { user } = response.data
