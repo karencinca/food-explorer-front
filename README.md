@@ -1,11 +1,30 @@
-<h1>
+<h1 align='center'>
   Food Explorer
 </h1>
 
-<h2>📁Projeto</h2>
+<p align="center">
+  <a href="#📌-repositórios">Repositórios</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#📁projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#📄-páginas">Páginas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#🔧-funcionalidades">Funcionalidades</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#💻-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#⚙-utilização">Utilização</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#👩‍💻👨‍💻-personas">Personas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="https://main--strong-marzipan-55dfeb.netlify.app/">Deploy</a>
+</p>
+
+## 📌 Repositórios
+
+### [Frontend](https://github.com/karencinca/food-explorer-front)
+### [Backend](https://github.com/karencinca/food-explorer-front)
+
+## 📁Projeto
 O projeto Food Explorer consiste no desafio final do programa Explorer da Rocketseat. O projeto simula um cardápio digital de um restaurante e nele foi colocado em prática o que foi estudado ao longo do curso.
 
-<h2>📄 Páginas</h2>
+<img src="./public/food-explorer-login.jpg">
+<img src="./public/food-explorer-telainicial.jpg">
+
+## 📄 Páginas
 A aplicação contém as seguintes páginas:
 
 - Login
@@ -15,7 +34,7 @@ A aplicação contém as seguintes páginas:
 - Detalhes do prato
 - Editar prato
 
-<h2>🔧 Funcionalidades</h2>
+## 🔧 Funcionalidades
 Este projeto possui as seguintes funcionalidades:
 
 - Login
@@ -28,7 +47,7 @@ Este projeto possui as seguintes funcionalidades:
 - Excluir prato
 - Logout
 
-<h2>💻 Tecnologias</h2>
+## 💻 Tecnologias
 A aplicação foi construída utilizando as seguintes tecnologias:
 
 - Axios
@@ -40,7 +59,7 @@ A aplicação foi construída utilizando as seguintes tecnologias:
 - Styled Components
 - Vite
 
-<h2>⚙ Utilização</h2>
+## ⚙ Utilização
 
 1. Clone o projeto:
 
@@ -68,4 +87,13 @@ $ npm run dev
 
 ⚠️ **Importante**: Este projeto utiliza uma hospedagem gratuita para o back-end, sendo assim, pode haver atrasos no tempo de resposta do servidor.
 
-<h2>👩‍💻👨‍💻 Personas</h2>
+## 👩‍💻👨‍💻 Personas
+Há duas formas de acessar a plataforma: como usuário comum ou como admin.
+O <strong>admin</strong> pode cadastrar, editar e excluir pratos, enquanto que o <strong>usuário comum</strong> pode visualizar os pratos.
+
+Login admin: admin@email.com |
+senha: 123456
+
+Login user: user@email.com | senha: 123456
+
+Feito com 💜 por [Karen Cinca](https://www.linkedin.com/in/karencinca/)
